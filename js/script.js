@@ -1,29 +1,36 @@
+// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initParticles();
     setupContactForm();
+    setupNavigation();
 });
 
 /**
- * Initialize particle effects
+ * Initialize floating particle effects
  */
 function initParticles() {
     const particleContainer = document.getElementById('particles');
     if (!particleContainer) return;
     
-    const particleCount = window.innerWidth < 768 ? 15 : 30; // Fewer particles on mobile
+    // Adjust particle count based on screen size
+    const particleCount = window.innerWidth < 768 ? 15 : 30;
     
+    // Create particles with random positions and animations
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
         particle.style.left = `${Math.random() * 100}%`;
-        particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.width = `${Math.random() * 3 + 2}px`;
+        particle.style.height = particle.style.width;
+        particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
         particle.style.animationDelay = `${Math.random() * 5}s`;
         particleContainer.appendChild(particle);
     }
 }
 
 /**
- * Setup contact form submission handler with API integration
+ * Setup contact form with validation and submission
  */
 function setupContactForm() {
     const contactForm = document.getElementById('contact-form');
@@ -38,7 +45,7 @@ function setupContactForm() {
 }
 
 /**
- * Handle form submission with API integration
+ * Handle form submission process
  */
 async function handleFormSubmission(form, submitButton) {
     const formData = new FormData(form);
@@ -48,7 +55,7 @@ async function handleFormSubmission(form, submitButton) {
         message: formData.get('message')?.trim()
     };
 
-    // Client-side validation
+    // Validate before submission
     const validationResult = validateFormData(data);
     if (!validationResult.isValid) {
         showMessage(validationResult.message, 'error');
@@ -67,7 +74,6 @@ async function handleFormSubmission(form, submitButton) {
         } else {
             throw new Error(response.error || 'Unknown error occurred');
         }
-        
     } catch (error) {
         handleError(error);
     } finally {
@@ -76,7 +82,7 @@ async function handleFormSubmission(form, submitButton) {
 }
 
 /**
- * Submit form data to API
+ * Submit data to API endpoint
  */
 async function submitToAPI(data) {
     const controller = new AbortController();
@@ -85,7 +91,10 @@ async function submitToAPI(data) {
     try {
         const response = await fetch(API_CONFIG.CONTACT_API_URL, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
             body: JSON.stringify(data),
             signal: controller.signal
         });
@@ -97,11 +106,10 @@ async function submitToAPI(data) {
             if (response.status === 429) {
                 throw new Error(`Rate limit exceeded. Try again in ${result.retryAfter || 60} seconds.`);
             }
-            throw new Error(result.error || `HTTP ${response.status}`);
+            throw new Error(result.error || `Server responded with ${response.status}`);
         }
         
         return result;
-        
     } catch (error) {
         clearTimeout(timeoutId);
         if (error.name === 'AbortError') {
@@ -112,7 +120,7 @@ async function submitToAPI(data) {
 }
 
 /**
- * Validate form data on client side
+ * Validate form data client-side
  */
 function validateFormData(data) {
     if (!data.name || data.name.length < 2) {
@@ -131,7 +139,7 @@ function validateFormData(data) {
 }
 
 /**
- * Handle submission errors with user-friendly messages
+ * Handle and display errors
  */
 function handleError(error) {
     let message = '❌ Failed to send message.\n';
@@ -139,9 +147,11 @@ function handleError(error) {
     if (error.message.includes('Rate limit')) {
         message += error.message;
     } else if (error.message.includes('timeout')) {
-        message += 'Request timed out. Check connection.';
+        message += 'Request timed out. Please check your connection.';
     } else if (error.message.includes('Failed to fetch')) {
-        message += 'Network error. Check internet.';
+        message += 'Network error. Please check your internet connection.';
+    } else if (error.message.includes('Server responded')) {
+        message += 'Server error: ' + error.message;
     } else {
         message += 'Please try again later.';
     }
@@ -150,14 +160,14 @@ function handleError(error) {
 }
 
 /**
- * Show terminal-style messages
+ * Display terminal-style messages
  */
 function showMessage(message, type = 'info') {
-    // Remove any existing message
+    // Remove existing messages
     const existing = document.getElementById('terminal-message');
     if (existing) existing.remove();
     
-    // Create message element
+    // Create new message element
     const messageDiv = document.createElement('div');
     messageDiv.id = 'terminal-message';
     messageDiv.className = `command-output mt-4 mb-4 glass-section rounded-xl p-4 border-2 ${getMessageClasses(type)}`;
@@ -183,16 +193,18 @@ function showMessage(message, type = 'info') {
     
     // Insert after the contact form
     const contactForm = document.getElementById('contact-form');
-    contactForm.parentNode.insertBefore(messageDiv, contactForm.nextSibling);
+    if (contactForm) {
+        contactForm.parentNode.insertBefore(messageDiv, contactForm.nextSibling);
+    }
     
-    // Auto-remove success messages after 10 seconds
+    // Auto-remove success messages
     if (type === 'success') {
         setTimeout(() => messageDiv?.remove(), 10000);
     }
 }
 
 /**
- * Get CSS classes for different message types
+ * Get CSS classes for message types
  */
 function getMessageClasses(type) {
     const classes = {
@@ -204,7 +216,7 @@ function getMessageClasses(type) {
 }
 
 /**
- * Escape HTML to prevent XSS
+ * Prevent XSS attacks
  */
 function escapeHtml(text) {
     const div = document.createElement('div');
@@ -213,46 +225,60 @@ function escapeHtml(text) {
 }
 
 /**
- * Set form button state
+ * Toggle button loading state
  */
 function setButtonState(button, loading) {
     if (loading) {
         button.disabled = true;
         button.innerHTML = '<span class="inline-block animate-spin mr-2">⚡</span>SENDING...';
-        button.classList.add('opacity-75');
+        button.classList.add('opacity-75', 'cursor-not-allowed');
     } else {
         button.disabled = false;
         button.innerHTML = 'SEND_MESSAGE';
-        button.classList.remove('opacity-75');
+        button.classList.remove('opacity-75', 'cursor-not-allowed');
     }
 }
 
 /**
- * Show/hide content sections and maintain scrolling
+ * Setup section navigation
+ */
+function setupNavigation() {
+    // Handle navigation link clicks
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const sectionId = link.getAttribute('href').substring(1);
+            showSection(sectionId);
+        });
+    });
+}
+
+/**
+ * Show/hide content sections
  */
 function showSection(sectionId) {
     // Hide all sections
-    const sections = document.querySelectorAll('.content-section');
-    sections.forEach(section => {
+    document.querySelectorAll('.content-section').forEach(section => {
         section.classList.add('section-hidden');
     });
     
-    // Show the target section
+    // Show target section
     const targetSection = document.getElementById(sectionId);
     if (targetSection) {
         targetSection.classList.remove('section-hidden');
         
-        // Re-trigger fade-in animation
+        // Trigger animation
         targetSection.classList.remove('fade-in');
         void targetSection.offsetWidth; // Force reflow
         targetSection.classList.add('fade-in');
         
-        // Scroll to section
+        // Smooth scroll
         setTimeout(() => {
-            targetSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 100);
     }
     
-    // Ensure body scrolling works
+    // Reset body scrolling
     document.body.style.overflow = 'auto';
 }
+

@@ -1,7 +1,7 @@
 // API Configuration
 const API_CONFIG = {
     // Contact Form API endpoint
-    CONTACT_API_URL: 'https://mycontactform.comharp.workers.dev/',
+    CONTACT_API_URL: 'https://mycontactform-raspy-lake-183d.pumudu820.workers.dev/',
     
     // Request timeout in milliseconds
     REQUEST_TIMEOUT: 10000,
