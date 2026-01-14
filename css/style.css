@@ -215,10 +215,7 @@ body {
         padding: 1rem;
     }
 
-    .glass-terminal {
-        padding: 1rem;
-        border-radius: 1rem;
-    }
+
 
     /* Simplified prompt for mobile */
     .prompt-line .terminal-prompt-full {
