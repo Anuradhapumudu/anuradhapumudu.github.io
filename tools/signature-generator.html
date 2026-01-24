@@ -4,28 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signature Generator | anuradha@portfolio</title>
-    <meta name="description" content="Create professional email signatures with this terminal-themed signature generator tool.">
+    <title>Email Signature Generator | anuradha@portfolio</title>
+    <meta name="description"
+        content="Create professional email signatures with AI-generated avatars. Live preview with support for Gmail, Apple Mail, and more.">
+    <meta name="keywords" content="email signature, signature generator, professional signature, Gmail signature">
+
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://image.pollinations.ai">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="../css/signature.css">
 </head>
 
 <body>
-    <!-- Floating Orbs -->
-    <div class="floating-orb orb-1"></div>
-    <div class="floating-orb orb-2"></div>
-    <div class="floating-orb orb-3"></div>
-
-    <header class="app-header fade-in">
-        <div class="header-content">
-            <h1>⚡ signature_generator.sh</h1>
-            <div class="header-actions">
-                <a href="../index.html" class="back-link">← Back to Portfolio</a>
-                <button id="theme-toggle" class="icon-button" aria-label="Toggle Theme">
-                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <div class="app-wrapper">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-container">
+                <a href="../index.html" class="back-link" aria-label="Go back to portfolio">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Back
+                </a>
+                <h1>✨ Email Signature Generator</h1>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
                         <circle cx="12" cy="12" r="5"></circle>
                         <line x1="12" y1="1" x2="12" y2="3"></line>
                         <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -36,121 +46,138 @@
                         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
-                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
                 </button>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <main class="container">
-        <section class="glass-panel fade-in delay-1">
-            <div class="panel-header">
-                <div>
-                    <h2>$ enter_details</h2>
-                    <p>Fill in your professional information</p>
-                </div>
-            </div>
-            <form id="signature-form">
-                <div class="form-group">
-                    <label for="name">~/name $</label>
-                    <div class="input-wrapper">
-                        <input type="text" id="name" placeholder="e.g. Jane Doe" autocomplete="name">
-                        <button type="button" class="clear-input" aria-label="Clear name">×</button>
-                    </div>
-                </div>
+        <!-- Main Content -->
+        <main class="main-container">
+            <!-- Form Section -->
+            <div class="form-section">
+                <div class="form-card">
+                    <h2>📝 Your Details</h2>
+                    <p class="form-subtitle">Fill in your information to generate a professional signature</p>
 
-                <div class="form-group">
-                    <label for="title">~/title $</label>
-                    <div class="input-wrapper">
-                        <input type="text" id="title" placeholder="e.g. Product Designer at Acme" autocomplete="organization-title">
-                        <button type="button" class="clear-input" aria-label="Clear title">×</button>
-                    </div>
-                </div>
+                    <form id="signature-form" autocomplete="off">
+                        <div class="input-group">
+                            <label for="name">Full Name</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="name" name="name" placeholder="e.g. Jane Doe"
+                                    autocomplete="name">
+                                <button type="button" class="clear-btn" aria-label="Clear name">×</button>
+                            </div>
+                        </div>
 
-                <div class="form-group">
-                    <label for="website">~/website $</label>
-                    <div class="input-wrapper">
-                        <input type="url" id="website" placeholder="e.g. https://acme.com" autocomplete="url">
-                        <button type="button" class="clear-input" aria-label="Clear website">×</button>
-                    </div>
-                </div>
+                        <div class="input-group">
+                            <label for="title">Job Title & Company</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="title" name="title"
+                                    placeholder="e.g. Product Designer at Acme Inc">
+                                <button type="button" class="clear-btn" aria-label="Clear title">×</button>
+                            </div>
+                        </div>
 
-                <div class="form-group">
-                    <label for="phone">~/phone $</label>
-                    <div class="input-wrapper">
-                        <input type="tel" id="phone" placeholder="e.g. +1 (555) 000-0000" autocomplete="tel">
-                        <button type="button" class="clear-input" aria-label="Clear phone">×</button>
-                    </div>
-                </div>
+                        <div class="input-group">
+                            <label for="website">Website</label>
+                            <div class="input-wrapper">
+                                <input type="url" id="website" name="website" placeholder="e.g. https://acme.com">
+                                <button type="button" class="clear-btn" aria-label="Clear website">×</button>
+                            </div>
+                        </div>
 
-                <div class="form-group">
-                    <label for="twitter">~/twitter $</label>
-                    <div class="input-wrapper">
-                        <input type="text" id="twitter" placeholder="e.g. @janedoe">
-                        <button type="button" class="clear-input" aria-label="Clear twitter">×</button>
-                    </div>
-                </div>
-            </form>
-        </section>
+                        <div class="input-group">
+                            <label for="phone">Phone Number</label>
+                            <div class="input-wrapper">
+                                <input type="tel" id="phone" name="phone" placeholder="e.g. +1 (555) 000-0000">
+                                <button type="button" class="clear-btn" aria-label="Clear phone">×</button>
+                            </div>
+                        </div>
 
-        <section class="preview-panel fade-in delay-2">
-            <div class="glass-panel">
-                <div class="panel-header">
-                    <h2>$ preview_output</h2>
-                    <button id="how-to-import-btn" class="text-button">How to import?</button>
-                </div>
-
-                <div class="preview-box">
-                    <div id="signature-preview">
-                        <!-- Signature content will be injected here -->
-                    </div>
+                        <div class="input-group">
+                            <label for="twitter">Twitter / X</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="twitter" name="twitter" placeholder="e.g. @janedoe">
+                                <button type="button" class="clear-btn" aria-label="Clear twitter">×</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
 
-            <button id="copy-btn" class="primary-button">
-                <span>📋 COPY_SIGNATURE</span>
-                <span class="success-message">✅ Copied!</span>
-            </button>
-        </section>
-    </main>
+            <!-- Preview Section -->
+            <div class="preview-section">
+                <div class="preview-card">
+                    <div class="preview-header">
+                        <h2>👁️ Live Preview</h2>
+                        <button id="how-to-import-btn" class="help-btn">📖 How to import?</button>
+                    </div>
 
-    <!-- Import Modal -->
-    <div id="import-modal" class="modal" aria-hidden="true">
+                    <div class="preview-container" id="preview-container">
+                        <div class="loading-overlay" id="loading-overlay">
+                            <div class="loading-spinner"></div>
+                            <span class="loading-text">Generating AI avatar...</span>
+                        </div>
+                        <div id="signature-preview" class="signature-preview">
+                            <!-- Signature will be rendered here -->
+                        </div>
+                    </div>
+
+                    <button id="copy-btn" class="copy-button">
+                        <span class="copy-text">📋 Copy Signature</span>
+                        <span class="copy-success">✅ Copied to Clipboard!</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Import Instructions Modal -->
+    <div id="import-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
         <div class="modal-overlay"></div>
         <div class="modal-content">
             <div class="modal-header">
-                <h3>📧 Import Instructions</h3>
-                <button class="close-modal" aria-label="Close modal">×</button>
+                <h3 id="modal-title">📧 How to Import Your Signature</h3>
+                <button class="modal-close" aria-label="Close modal">×</button>
             </div>
             <div class="modal-body">
-                <div class="instruction-group">
-                    <h4>Gmail</h4>
+                <div class="instruction-section">
+                    <h4>📧 Gmail</h4>
                     <ol>
-                        <li>Click <strong>Copy Signature</strong> above.</li>
-                        <li>Open Gmail settings (gear icon) → <strong>See all settings</strong>.</li>
-                        <li>Scroll down to the <strong>Signature</strong> section.</li>
-                        <li>Create new or edit existing, then <strong>Paste (Cmd/Ctrl + V)</strong>.</li>
-                        <li>Scroll to bottom and click <strong>Save Changes</strong>.</li>
+                        <li>Click <strong>Copy Signature</strong> above</li>
+                        <li>Open Gmail settings (gear icon) → <strong>See all settings</strong></li>
+                        <li>Scroll to the <strong>Signature</strong> section</li>
+                        <li>Create new or edit existing, then <strong>Paste (Cmd/Ctrl + V)</strong></li>
+                        <li>Scroll down and click <strong>Save Changes</strong></li>
                     </ol>
                 </div>
-                <div class="instruction-group">
-                    <h4>macOS Mail</h4>
+                <div class="instruction-section">
+                    <h4>🍎 macOS Mail</h4>
                     <ol>
-                        <li>Click <strong>Copy Signature</strong> above.</li>
-                        <li>In Mail app, go to <strong>Mail → Settings → Signatures</strong>.</li>
-                        <li>Uncheck "Always match my default message font".</li>
-                        <li><strong>Paste</strong> the signature into the box.</li>
+                        <li>Click <strong>Copy Signature</strong> above</li>
+                        <li>In Mail app, go to <strong>Mail → Settings → Signatures</strong></li>
+                        <li>Uncheck "Always match my default message font"</li>
+                        <li><strong>Paste</strong> the signature into the box</li>
                     </ol>
                 </div>
-                <div class="instruction-group">
-                    <h4>iOS Mail</h4>
+                <div class="instruction-section">
+                    <h4>📱 iOS Mail</h4>
                     <ol>
-                        <li>Copy the signature on your phone.</li>
-                        <li>Go to <strong>Settings → Mail → Signature</strong>.</li>
-                        <li>Paste into the box.</li>
+                        <li>Copy the signature on your phone</li>
+                        <li>Go to <strong>Settings → Mail → Signature</strong></li>
+                        <li>Paste into the signature box</li>
+                    </ol>
+                </div>
+                <div class="instruction-section">
+                    <h4>💼 Outlook</h4>
+                    <ol>
+                        <li>Click <strong>Copy Signature</strong> above</li>
+                        <li>Go to <strong>Settings → Mail → Compose & Reply</strong></li>
+                        <li><strong>Paste</strong> into the signature editor</li>
+                        <li>Click <strong>Save</strong></li>
                     </ol>
                 </div>
             </div>

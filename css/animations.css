@@ -1,51 +1,360 @@
-/* Gradient background animation */
+/* ═══════════════════════════════════════════════════════════════════════════
+   Portfolio Animations
+   Modern scroll-triggered effects and transitions
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Gradient Background Animation
+   ───────────────────────────────────────────────────────────────────────────── */
 @keyframes gradientShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
-/* Floating animation for orbs */
+/* ─────────────────────────────────────────────────────────────────────────────
+   Floating Animation for Orbs
+   ───────────────────────────────────────────────────────────────────────────── */
 @keyframes float {
-    0%, 100% { transform: translateY(0px) translateX(0px) scale(1); }
-    25% { transform: translateY(-30px) translateX(20px) scale(1.1); }
-    50% { transform: translateY(-10px) translateX(-15px) scale(0.9); }
-    75% { transform: translateY(-20px) translateX(10px) scale(1.05); }
+
+    0%,
+    100% {
+        transform: translateY(0px) translateX(0px) scale(1);
+        opacity: 0.5;
+    }
+
+    25% {
+        transform: translateY(-35px) translateX(25px) scale(1.1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translateY(-15px) translateX(-20px) scale(0.95);
+        opacity: 0.4;
+    }
+
+    75% {
+        transform: translateY(-25px) translateX(15px) scale(1.05);
+        opacity: 0.55;
+    }
 }
 
-/* Cursor blink */
-@keyframes blink { 
-    50% { opacity: 0; } 
+/* ─────────────────────────────────────────────────────────────────────────────
+   Cursor Blink Animation
+   ───────────────────────────────────────────────────────────────────────────── */
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
-/* Typewriter effect */
-@keyframes typing { 
-    from { width: 0; } 
-    to { width: 100%; } 
+/* ─────────────────────────────────────────────────────────────────────────────
+   Typewriter Effect
+   ───────────────────────────────────────────────────────────────────────────── */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
 }
 
-/* Fade in elements from bottom */
-@keyframes fadeInUp { 
-    to { opacity: 1; transform: translateY(0); } 
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 2s steps(20, end);
 }
 
-/* Particle animation */
+/* ─────────────────────────────────────────────────────────────────────────────
+   Fade In Up Animation
+   ───────────────────────────────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Particle Float Animation
+   ───────────────────────────────────────────────────────────────────────────── */
 @keyframes particleFloat {
-    0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
+    0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-100px) translateX(80px);
+        opacity: 0;
+    }
 }
 
-/* Typewriter class */
-.typewriter { 
-    overflow: hidden; 
-    white-space: nowrap; 
-    animation: typing 2s steps(20, end); 
+/* ─────────────────────────────────────────────────────────────────────────────
+   Pulse Glow Animation
+   ───────────────────────────────────────────────────────────────────────────── */
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(0, 255, 136, 0.5), 0 0 60px rgba(0, 255, 255, 0.2);
+    }
 }
 
-/* Fade in class */
-.fade-in { 
-    animation: fadeInUp 0.8s ease-out forwards; 
-    opacity: 0; 
-    transform: translateY(20px); 
+.pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Shimmer Loading Effect
+   ───────────────────────────────────────────────────────────────────────────── */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.shimmer {
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.1) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Scale In Animation
+   ───────────────────────────────────────────────────────────────────────────── */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Slide In Animations
+   ───────────────────────────────────────────────────────────────────────────── */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.slide-right {
+    animation: slideInRight 0.6s ease-out forwards;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Bounce Animation
+   ───────────────────────────────────────────────────────────────────────────── */
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.bounce {
+    animation: bounce 2s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Rotation Animation
+   ───────────────────────────────────────────────────────────────────────────── */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate {
+    animation: rotate 20s linear infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Text Gradient Animation
+   ───────────────────────────────────────────────────────────────────────────── */
+@keyframes gradientText {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.gradient-text-animated {
+    background: linear-gradient(135deg, #00ffff, #dd88ff, #00ff88, #00ffff);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientText 5s ease infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Animation Delays (for staggered effects)
+   ───────────────────────────────────────────────────────────────────────────── */
+.delay-100 {
+    animation-delay: 0.1s;
+}
+
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
+.delay-300 {
+    animation-delay: 0.3s;
+}
+
+.delay-400 {
+    animation-delay: 0.4s;
+}
+
+.delay-500 {
+    animation-delay: 0.5s;
+}
+
+.delay-600 {
+    animation-delay: 0.6s;
+}
+
+.delay-700 {
+    animation-delay: 0.7s;
+}
+
+.delay-800 {
+    animation-delay: 0.8s;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Hover Transition Effects
+   ───────────────────────────────────────────────────────────────────────────── */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Accessibility: Reduced Motion
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+
+    .typewriter,
+    .fade-in,
+    .scale-in,
+    .slide-left,
+    .slide-right,
+    .bounce,
+    .rotate,
+    .shimmer,
+    .pulse-glow,
+    .gradient-text-animated {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .hover-lift:hover,
+    .hover-scale:hover {
+        transform: none;
+    }
 }
