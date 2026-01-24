@@ -30,12 +30,18 @@
             <div class="flex items-center justify-between mb-0">
                 <div class="flex items-center gap-3">
                     <div class="flex gap-2">
-                        <div class="w-3 h-3 md:w-4 md:h-4 bg-gradient-to-br from-red-400 to-red-600 rounded-full shadow-lg"></div>
-                        <div class="w-3 h-3 md:w-4 md:h-4 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full shadow-lg">
+                        <div
+                            class="w-3 h-3 md:w-4 md:h-4 bg-gradient-to-br from-red-400 to-red-600 rounded-full shadow-lg">
                         </div>
-                        <div class="w-3 h-3 md:w-4 md:h-4 bg-gradient-to-br from-green-400 to-green-600 rounded-full shadow-lg"></div>
+                        <div
+                            class="w-3 h-3 md:w-4 md:h-4 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full shadow-lg">
+                        </div>
+                        <div
+                            class="w-3 h-3 md:w-4 md:h-4 bg-gradient-to-br from-green-400 to-green-600 rounded-full shadow-lg">
+                        </div>
                     </div>
-                    <span class="ml-4 text-gray-400 text-xs md:text-sm font-medium hidden md:block">anuradha@portfolio — zsh — Terminal</span>
+                    <span class="ml-4 text-gray-400 text-xs md:text-sm font-medium hidden md:block">anuradha@portfolio —
+                        zsh — Terminal</span>
                     <span class="ml-2 text-gray-400 text-xs font-medium md:hidden">anuradha@portfolio</span>
                 </div>
                 <div class="terminal-cyan text-xs md:text-sm">⚡ Online</div>
@@ -118,6 +124,11 @@
                             class="glass-section rounded-xl p-4 hover-glow cursor-pointer neon-border text-left">
                             <div class="terminal-green text-lg mb-1">📧 contact.sh</div>
                             <div class="text-gray-400 text-sm">Let's connect</div>
+                        </button>
+                        <button onclick="showSection('tools')"
+                            class="glass-section rounded-xl p-4 hover-glow cursor-pointer neon-border text-left">
+                            <div class="terminal-pink text-lg mb-1">🔧 tools/</div>
+                            <div class="text-gray-400 text-sm">Useful utilities</div>
                         </button>
                     </div>
                 </div>
@@ -314,6 +325,59 @@
                                     <button type="submit"
                                         class="w-full terminal-green font-bold py-3 px-4 rounded-lg neon-border hover:bg-green-500/20 transition-all duration-300">SEND_MESSAGE</button>
                                 </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools Section -->
+                <div id="tools" class="content-section section-hidden mb-10">
+                    <div class="prompt-line">
+                        <span class="terminal-prompt-full">
+                            <span class="terminal-blue glow-text font-semibold">anuradha@portfolio</span><span
+                                class="text-white">:</span><span class="terminal-yellow glow-text">~</span><span
+                                class="text-white">$ </span>
+                        </span>
+                        <span class="terminal-prompt-mobile terminal-yellow glow-text">$ </span>
+                        <span class="terminal-pink">ls tools/ --icons</span>
+                    </div>
+                    <div class="command-output mt-6">
+                        <div class="glass-section rounded-2xl p-8 space-y-6">
+                            <div class="border-l-4 border-terminal-pink pl-6 mb-6">
+                                <h3 class="terminal-pink glow-text text-2xl mb-2 font-bold"># Developer Tools</h3>
+                                <p class="text-gray-300">Useful utilities I've built for everyday tasks.</p>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <a href="tools/signature-generator.html"
+                                    class="glass-section rounded-xl p-6 neon-border block hover:scale-105 transition-all duration-300 no-underline">
+                                    <div class="flex items-center gap-4 mb-3">
+                                        <span class="text-3xl">✍️</span>
+                                        <div>
+                                            <h4 class="terminal-cyan glow-text text-xl font-bold">Signature Generator
+                                            </h4>
+                                            <p class="text-gray-400 text-sm">signature_generator.sh</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-300 mb-4">Create professional email signatures with a live
+                                        preview. Supports Gmail, Apple Mail, and more.</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span
+                                            class="terminal-yellow text-xs px-3 py-1 bg-yellow-500/10 rounded-full border border-yellow-500/30">HTML</span>
+                                        <span
+                                            class="terminal-purple text-xs px-3 py-1 bg-purple-500/10 rounded-full border border-purple-500/30">CSS</span>
+                                        <span
+                                            class="terminal-green text-xs px-3 py-1 bg-green-500/10 rounded-full border border-green-500/30">JavaScript</span>
+                                    </div>
+                                </a>
+
+                                <div
+                                    class="glass-section rounded-xl p-6 border border-dashed border-gray-600 flex items-center justify-center">
+                                    <div class="text-center">
+                                        <span class="text-3xl mb-2 block opacity-50">🚀</span>
+                                        <p class="text-gray-500">More tools coming soon...</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

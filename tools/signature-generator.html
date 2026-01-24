@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Generator | anuradha@portfolio</title>
+    <meta name="description" content="Create professional email signatures with this terminal-themed signature generator tool.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/signature.css">
+</head>
+
+<body>
+    <!-- Floating Orbs -->
+    <div class="floating-orb orb-1"></div>
+    <div class="floating-orb orb-2"></div>
+    <div class="floating-orb orb-3"></div>
+
+    <header class="app-header fade-in">
+        <div class="header-content">
+            <h1>⚡ signature_generator.sh</h1>
+            <div class="header-actions">
+                <a href="../index.html" class="back-link">← Back to Portfolio</a>
+                <button id="theme-toggle" class="icon-button" aria-label="Toggle Theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="glass-panel fade-in delay-1">
+            <div class="panel-header">
+                <div>
+                    <h2>$ enter_details</h2>
+                    <p>Fill in your professional information</p>
+                </div>
+            </div>
+            <form id="signature-form">
+                <div class="form-group">
+                    <label for="name">~/name $</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="name" placeholder="e.g. Jane Doe" autocomplete="name">
+                        <button type="button" class="clear-input" aria-label="Clear name">×</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">~/title $</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="title" placeholder="e.g. Product Designer at Acme" autocomplete="organization-title">
+                        <button type="button" class="clear-input" aria-label="Clear title">×</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="website">~/website $</label>
+                    <div class="input-wrapper">
+                        <input type="url" id="website" placeholder="e.g. https://acme.com" autocomplete="url">
+                        <button type="button" class="clear-input" aria-label="Clear website">×</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">~/phone $</label>
+                    <div class="input-wrapper">
+                        <input type="tel" id="phone" placeholder="e.g. +1 (555) 000-0000" autocomplete="tel">
+                        <button type="button" class="clear-input" aria-label="Clear phone">×</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="twitter">~/twitter $</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="twitter" placeholder="e.g. @janedoe">
+                        <button type="button" class="clear-input" aria-label="Clear twitter">×</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <section class="preview-panel fade-in delay-2">
+            <div class="glass-panel">
+                <div class="panel-header">
+                    <h2>$ preview_output</h2>
+                    <button id="how-to-import-btn" class="text-button">How to import?</button>
+                </div>
+
+                <div class="preview-box">
+                    <div id="signature-preview">
+                        <!-- Signature content will be injected here -->
+                    </div>
+                </div>
+            </div>
+
+            <button id="copy-btn" class="primary-button">
+                <span>📋 COPY_SIGNATURE</span>
+                <span class="success-message">✅ Copied!</span>
+            </button>
+        </section>
+    </main>
+
+    <!-- Import Modal -->
+    <div id="import-modal" class="modal" aria-hidden="true">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>📧 Import Instructions</h3>
+                <button class="close-modal" aria-label="Close modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="instruction-group">
+                    <h4>Gmail</h4>
+                    <ol>
+                        <li>Click <strong>Copy Signature</strong> above.</li>
+                        <li>Open Gmail settings (gear icon) → <strong>See all settings</strong>.</li>
+                        <li>Scroll down to the <strong>Signature</strong> section.</li>
+                        <li>Create new or edit existing, then <strong>Paste (Cmd/Ctrl + V)</strong>.</li>
+                        <li>Scroll to bottom and click <strong>Save Changes</strong>.</li>
+                    </ol>
+                </div>
+                <div class="instruction-group">
+                    <h4>macOS Mail</h4>
+                    <ol>
+                        <li>Click <strong>Copy Signature</strong> above.</li>
+                        <li>In Mail app, go to <strong>Mail → Settings → Signatures</strong>.</li>
+                        <li>Uncheck "Always match my default message font".</li>
+                        <li><strong>Paste</strong> the signature into the box.</li>
+                    </ol>
+                </div>
+                <div class="instruction-group">
+                    <h4>iOS Mail</h4>
+                    <ol>
+                        <li>Copy the signature on your phone.</li>
+                        <li>Go to <strong>Settings → Mail → Signature</strong>.</li>
+                        <li>Paste into the box.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/signature.js"></script>
+</body>
+
+</html>
