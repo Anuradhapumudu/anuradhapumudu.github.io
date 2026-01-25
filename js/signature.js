@@ -131,19 +131,22 @@
         if (needsNewAvatar && name.length > 1) {
             lastAvatarKey = avatarKey;
             generateAIAvatar(name, title);
-        } else if (showCover) {
+        }
+
+        // Cover Generation Logic (Independent check)
+        if (showCover) {
             const coverKey = `cover_${title}`;
             if (coverKey !== lastCoverKey || !currentCoverUrl) {
                 generateCoverImage(title);
-            } else {
-                renderSignature();
             }
         } else {
             if (currentCoverUrl) {
                 currentCoverUrl = null;
             }
-            renderSignature();
         }
+
+        // Always render to update text fields immediately
+        renderSignature();
     }
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -259,12 +262,13 @@
         }
 
         lastCoverKey = coverKey;
-        avatarGenerationPending = true;
+        // Don't set global pending if avatar is running, but show loading
         showLoading(true, 'Generating AI Cover...');
 
         try {
             const prompt = `Wide panoramic header background, minimalist professional aesthetic, ${jobTitle} theme, abstract geometric, soft lighting, negative space, high resolution, 8k`;
-            const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=600&height=150&model=flux&nologo=true&seed=${hashCode(jobTitle)}`;
+            // Removed model=flux to use default model (more reliable) and fixed dimensions
+            const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=600&height=150&nologo=true&seed=${hashCode(jobTitle)}`;
 
             const loaded = await preloadImage(imageUrl);
             if (loaded) {
@@ -274,7 +278,6 @@
             console.warn('Cover generation failed');
             currentCoverUrl = null;
         } finally {
-            avatarGenerationPending = false;
             showLoading(false);
             renderSignature();
         }
