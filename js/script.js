@@ -367,6 +367,7 @@
             // Get form data
             const name = document.getElementById('contact-name').value.trim();
             const email = document.getElementById('contact-email').value.trim();
+            const phone = document.getElementById('contact-phone')?.value.trim() || '';
             const message = document.getElementById('contact-message').value.trim();
 
             // Validate
@@ -391,7 +392,7 @@
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ name, email, message })
+                    body: JSON.stringify({ name, email, phone, message })
                 });
 
                 if (response.ok) {
