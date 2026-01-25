@@ -135,6 +135,7 @@ ${message}
 • Timezone: ${info.timezone}
 • ISP: ${info.asOrganization}
 • Colo: ${info.colo}
+• User Agent: ${info.userAgent}
 • Referer: ${info.referer}
 
 📅 ${info.timestamp}
