@@ -383,10 +383,18 @@ a {
     font-weight: 800;
     line-height: 1.1;
     background: linear-gradient(to right, #fff, #a5a5a5);
+    /* Dark mode default */
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: var(--space-xs);
+}
+
+[data-theme="light"] .about-heading {
+    background: linear-gradient(to right, #0a0a0a, #525252);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
 }
 
 .about-text {
@@ -1354,6 +1362,7 @@ h3 {
     transform: translateY(0) scale(1);
     transition: opacity 0.1s linear, transform 0.1s linear;
 }
+
 /* ─────────────────────────────────────────────────────────────────────────────
    Typing Animation Cursor
    ───────────────────────────────────────────────────────────────────────────── */
@@ -1365,6 +1374,13 @@ h3 {
 }
 
 @keyframes blinkCursor {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }

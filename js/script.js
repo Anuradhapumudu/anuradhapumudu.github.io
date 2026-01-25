@@ -228,12 +228,26 @@
     // Theme Management
     // ═══════════════════════════════════════════════════════════════════════════
     function initTheme() {
-        const saved = localStorage.getItem(CONFIG.THEME_KEY);
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const theme = saved || (prefersDark ? 'dark' : 'light');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-        document.documentElement.setAttribute('data-theme', theme);
-        updateThemeColor(theme);
+        const applyTheme = () => {
+            const saved = localStorage.getItem(CONFIG.THEME_KEY);
+            const theme = saved || (systemDark.matches ? 'dark' : 'light');
+
+            document.documentElement.setAttribute('data-theme', theme);
+            updateThemeColor(theme);
+        };
+
+        // Apply initially
+        applyTheme();
+
+        // Listen for system changes
+        systemDark.addEventListener('change', () => {
+            // Only update if user hasn't manually overridden
+            if (!localStorage.getItem(CONFIG.THEME_KEY)) {
+                applyTheme();
+            }
+        });
     }
 
     function initThemeToggle() {
