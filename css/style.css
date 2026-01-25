@@ -877,6 +877,7 @@ a {
     font-size: var(--font-sm);
     text-align: center;
     display: none;
+    transition: opacity 0.5s ease;
 }
 
 .form-status.success {

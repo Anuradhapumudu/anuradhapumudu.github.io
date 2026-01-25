@@ -417,6 +417,17 @@
             statusDiv.textContent = message;
             statusDiv.className = `form-status ${type}`;
             statusDiv.style.display = 'block';
+
+            // Auto hide after 5 seconds
+            setTimeout(() => {
+                statusDiv.style.opacity = '0';
+                setTimeout(() => {
+                    statusDiv.style.display = 'none';
+                    statusDiv.style.opacity = '1';
+                    statusDiv.textContent = '';
+                    statusDiv.className = 'form-status';
+                }, 500); // Wait for fade out transition
+            }, 5000);
         }
     }
 
