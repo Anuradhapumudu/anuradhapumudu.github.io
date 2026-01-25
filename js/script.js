@@ -22,12 +22,12 @@
         initTheme();
         initThemeToggle();
         initScrollProgress();
-        initCinematicScroll(); // New scroll engine
+        initCinematicScroll();
         initSectionNav();
         initSkillBars();
-        // initTypingAnimation(); // Removed old typing in favor of static heroic text
-        initTechSphere(); // New visual
-        initProjectCards(); // Spotlight effect
+        initTechSphere();
+        initProjectCards();
+        initContactForm(); // Contact form handler
     });
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -146,7 +146,8 @@
 
                 // Inner elements reveal logic
                 const rect = section.getBoundingClientRect();
-                const triggerPoint = windowHeight * 0.75;
+                // Trigger when element is near middle (60% down viewport)
+                const triggerPoint = windowHeight * 0.6;
 
                 if (rect.top <= triggerPoint && rect.bottom >= 0) {
                     section.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
@@ -328,4 +329,75 @@
         });
     });
 
+    // ═══════════════════════════════════════════════════════════════════════════
+    // Contact Form Handler
+    // ═══════════════════════════════════════════════════════════════════════════
+    function initContactForm() {
+        const form = document.getElementById('contact-form');
+        if (!form) return;
+
+        const submitBtn = form.querySelector('.contact-submit-btn');
+        const btnText = submitBtn?.querySelector('.btn-text');
+        const btnLoading = submitBtn?.querySelector('.btn-loading');
+        const statusDiv = document.getElementById('form-status');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Get form data
+            const name = document.getElementById('contact-name').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const message = document.getElementById('contact-message').value.trim();
+
+            // Validate
+            if (!name || !email || !message) {
+                showStatus('Please fill in all fields.', 'error');
+                return;
+            }
+
+            // Show loading state
+            if (btnText) btnText.style.display = 'none';
+            if (btnLoading) btnLoading.style.display = 'inline';
+            submitBtn.disabled = true;
+            statusDiv.className = 'form-status';
+            statusDiv.style.display = 'none';
+
+            try {
+                // Get API URL from config or use default
+                const apiUrl = window.API_CONFIG?.CONTACT_API_URL || 'https://mycontactform-raspy-lake-183d.pumudu820.workers.dev/';
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email, message })
+                });
+
+                if (response.ok) {
+                    showStatus('Message sent successfully! I\'ll get back to you soon.', 'success');
+                    form.reset();
+                } else {
+                    const errorData = await response.json().catch(() => ({}));
+                    throw new Error(errorData.error || 'Failed to send message');
+                }
+            } catch (error) {
+                console.error('Contact form error:', error);
+                showStatus('Failed to send message. Please try emailing me directly.', 'error');
+            } finally {
+                // Reset button state
+                if (btnText) btnText.style.display = 'inline';
+                if (btnLoading) btnLoading.style.display = 'none';
+                submitBtn.disabled = false;
+            }
+        });
+
+        function showStatus(message, type) {
+            statusDiv.textContent = message;
+            statusDiv.className = `form-status ${type}`;
+            statusDiv.style.display = 'block';
+        }
+    }
+
 })();
+
