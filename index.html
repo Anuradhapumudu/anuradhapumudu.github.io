@@ -4,36 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pumudu Anuradha | Full-Stack Developer Portfolio</title>
+    <title>Pumudu Anuradha | Full-Stack Developer</title>
     <meta name="description"
-        content="Full-stack developer passionate about creating scalable applications. Expertise in React, Node.js, Python, and cloud technologies.">
-    <meta name="keywords" content="full-stack developer, web developer, React, Node.js, portfolio">
+        content="Full-stack developer crafting exceptional digital experiences. Building the future, one line of code at a time.">
+    <meta name="keywords" content="full-stack developer, web developer, React, Node.js, Python, portfolio">
     <meta name="author" content="Pumudu Anuradha">
-    <meta name="theme-color" content="#0a0a1a">
+    <meta name="theme-color" content="#0a0a0a">
 
-    <!-- Preconnect for performance -->
+    <!-- Open Graph -->
+    <meta property="og:title" content="Pumudu Anuradha | Full-Stack Developer">
+    <meta property="og:description" content="Full-stack developer crafting exceptional digital experiences.">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-
-    <!-- Scripts -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
-
-    <!-- LinkedIn Badge -->
-    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
 </head>
 
-<body class="min-h-screen p-4 md:p-8 relative">
-    <!-- Global Theme Toggle -->
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme">
-        <svg class="sun-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2">
+<body>
+    <!-- Scroll Progress -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar" id="scroll-progress"></div>
+    </div>
+
+    <!-- Section Navigation -->
+    <nav class="section-nav" id="section-nav">
+        <button class="section-nav-item active" data-section="hero" aria-label="Go to hero section"></button>
+        <button class="section-nav-item" data-section="about" aria-label="Go to about section"></button>
+        <button class="section-nav-item" data-section="work" aria-label="Go to work section"></button>
+        <button class="section-nav-item" data-section="skills" aria-label="Go to skills section"></button>
+        <button class="section-nav-item" data-section="contact" aria-label="Go to contact section"></button>
+    </nav>
+
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -44,373 +55,239 @@
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
-        <svg class="moon-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2">
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
     </button>
 
-    <!-- Floating Orbs -->
-    <div class="floating-orb orb-1"></div>
-    <div class="floating-orb orb-2"></div>
-    <div class="floating-orb orb-3"></div>
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SECTION 01: HERO
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="section hero section-sticky" id="hero">
+        <span class="section-number">01</span>
 
-    <!-- Particles -->
-    <div class="particles" id="particles"></div>
-
-    <div class="max-w-5xl mx-auto relative z-10">
-        <!-- Terminal Header -->
-        <div class="glass-terminal rounded-t-2xl p-4 md:p-6 mb-0">
-            <div class="flex items-center justify-between mb-0">
-                <div class="flex items-center gap-3">
-                    <div class="flex gap-2">
-                        <div
-                            class="w-3 h-3 md:w-4 md:h-4 bg-gradient-to-br from-red-400 to-red-600 rounded-full shadow-lg">
-                        </div>
-                        <div
-                            class="w-3 h-3 md:w-4 md:h-4 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full shadow-lg">
-                        </div>
-                        <div
-                            class="w-3 h-3 md:w-4 md:h-4 bg-gradient-to-br from-green-400 to-green-600 rounded-full shadow-lg">
-                        </div>
-                    </div>
-                    <span class="ml-4 text-gray-400 text-xs md:text-sm font-medium hidden md:block">anuradha@portfolio —
-                        zsh — Terminal</span>
-                    <span class="ml-2 text-gray-400 text-xs font-medium md:hidden">anuradha@portfolio</span>
-                </div>
-                <div class="terminal-cyan text-xs md:text-sm">⚡ Online</div>
-            </div>
+        <!-- 3D Floating Shapes Background (Subtler now) -->
+        <div class="floating-shapes" aria-hidden="true">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
         </div>
 
-        <!-- Terminal Content -->
-        <div class="glass-terminal rounded-b-2xl p-4 md:p-8" id="terminal-content">
-            <!-- Welcome -->
-            <div class="mb-8">
-                <div class="prompt-line">
-                    <span class="terminal-prompt-full">
-                        <span class="terminal-blue glow-text font-semibold">anuradha@portfolio</span><span
-                            class="text-white">:</span><span class="terminal-yellow glow-text">~</span><span
-                            class="text-white">$ </span>
-                    </span>
-                    <span class="terminal-prompt-mobile terminal-yellow glow-text">$ </span>
-                    <span class="typewriter terminal-green">whoami && pwd</span>
-                    <span class="cursor terminal-green">▊</span>
+        <div class="scroll-content">
+            <div class="hero-split-container">
+                <!-- Left Column: Text -->
+                <div class="hero-text-content">
+                    <p class="hero-label fade-in-up">Full-Stack Developer</p>
+                    <h1 class="hero-name fade-in-up delay-1">
+                        Pumudu<br>Anuradha<span class="typing-cursor">.</span>
+                    </h1>
+                    <p class="hero-title fade-in-up delay-2">
+                        CS Undergraduate at University of Colombo School of Computing.
+                        Building the future with elegant digital solutions.
+                    </p>
+                    <a href="#contact" class="hero-cta fade-in-up delay-3">
+                        <span>Let's work together</span>
+                        <span>→</span>
+                    </a>
                 </div>
-                <div class="command-output fade-in glass-section rounded-xl p-6 mt-4" style="animation-delay: 2.5s;">
-                    <div class="grid md:grid-cols-[1fr_auto] gap-6 items-start">
-                        <div class="space-y-3">
-                            <p class="terminal-green glow-text text-xl font-bold">Pumudu Anuradha</p>
-                            <p class="terminal-cyan text-lg">[hobby] Full-stack Developer</p>
-                            <p class="text-gray-300">/home/anuradha/passion/code/innovation</p>
-                            <div class="flex flex-wrap gap-4 text-sm mt-4">
-                                <span class="terminal-pink">🚀 Building the future</span>
-                                <span class="terminal-yellow">☕ Powered by coffee</span>
-                                <span class="terminal-purple">🌍 Colombo, LK</span>
-                            </div>
-                        </div>
-                        <div class="hidden md:block">
-                            <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium"
-                                data-theme="dark" data-type="VERTICAL" data-vanity="pumudu-anuradha-5b5a85313"
-                                data-version="v1"><a class="badge-base__link LI-simple-link"
-                                    href="https://lk.linkedin.com/in/pumudu-anuradha-5b5a85313?trk=profile-badge">Pumudu
-                                    Anuradha</a></div>
-                        </div>
-                        <div class="md:hidden w-full flex justify-center mt-4">
-                            <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium"
-                                data-theme="dark" data-type="VERTICAL" data-vanity="pumudu-anuradha-5b5a85313"
-                                data-version="v1"><a class="badge-base__link LI-simple-link"
-                                    href="https://lk.linkedin.com/in/pumudu-anuradha-5b5a85313?trk=profile-badge">Pumudu
-                                    Anuradha</a></div>
-                        </div>
+
+                <!-- Right Column: Visual (Tech Sphere) -->
+                <div class="hero-visual fade-in-up delay-4">
+                    <div class="tech-sphere-wrapper" id="tech-sphere">
+                        <!-- Tags inserted via JS -->
                     </div>
                 </div>
             </div>
 
-            <!-- Navigation Menu -->
-            <div class="mb-10 fade-in" style="animation-delay: 3s;">
-                <div class="prompt-line">
-                    <span class="terminal-prompt-full">
-                        <span class="terminal-blue glow-text font-semibold">anuradha@portfolio</span><span
-                            class="text-white">:</span><span class="terminal-yellow glow-text">~</span><span
-                            class="text-white">$ </span>
-                    </span>
-                    <span class="terminal-prompt-mobile terminal-yellow glow-text">$ </span>
-                    <span class="terminal-purple">ls -la --color=always</span>
-                </div>
-                <div class="command-output mt-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <button onclick="showSection('about')"
-                            class="glass-section rounded-xl p-4 hover-glow cursor-pointer neon-border text-left">
-                            <div class="terminal-cyan text-lg mb-1">📄 about.md</div>
-                            <div class="text-gray-400 text-sm">Personal info & story</div>
-                        </button>
-                        <button onclick="showSection('skills')"
-                            class="glass-section rounded-xl p-4 hover-glow cursor-pointer neon-border text-left">
-                            <div class="terminal-purple text-lg mb-1">⚙️ skills.json</div>
-                            <div class="text-gray-400 text-sm">Technical expertise</div>
-                        </button>
-                        <button onclick="showSection('projects')"
-                            class="glass-section rounded-xl p-4 hover-glow cursor-pointer neon-border text-left">
-                            <div class="terminal-yellow text-lg mb-1">🚀 projects/</div>
-                            <div class="text-gray-400 text-sm">Featured work</div>
-                        </button>
-                        <button onclick="showSection('contact')"
-                            class="glass-section rounded-xl p-4 hover-glow cursor-pointer neon-border text-left">
-                            <div class="terminal-green text-lg mb-1">📧 contact.sh</div>
-                            <div class="text-gray-400 text-sm">Let's connect</div>
-                        </button>
-                        <button onclick="showSection('tools')"
-                            class="glass-section rounded-xl p-4 hover-glow cursor-pointer neon-border text-left">
-                            <div class="terminal-pink text-lg mb-1">🔧 tools/</div>
-                            <div class="text-gray-400 text-sm">Useful utilities</div>
-                        </button>
+            <!-- Scroll indicator -->
+            <div class="scroll-indicator fade-in-up delay-4">
+                <span>Scroll</span>
+                <div class="scroll-indicator-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SECTION 02: ABOUT
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="section section-sticky" id="about">
+        <span class="section-number">02</span>
+        <div class="scroll-content">
+            <div class="section-inner">
+                <div class="about-grid">
+                    <div class="about-image reveal-left">
+
+                    </div>
+                    <div class="about-content">
+                        <div class="education-badge reveal">
+                            <span class="icon">🎓</span>
+                            <span>Computer Science @ UCSC</span>
+                        </div>
+                        <h2 class="about-heading reveal">
+                            Pursuing dreams<br>in Computer Science
+                        </h2>
+                        <p class="about-text reveal">
+                            I'm a Computer Science undergraduate at the University of Colombo
+                            School of Computing (UCSC), passionate about transforming ideas into
+                            elegant digital solutions. I specialize in modern web technologies
+                            and love building applications that make a difference.
+                        </p>
+                        <div class="stats-grid reveal-stagger">
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="20">20+</div>
+                                <div class="stat-label">Projects Built</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">Cups of Coffee</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="10">10+</div>
+                                <div class="stat-label">Technologies</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Content Sections -->
-            <div id="content-container">
-                <!-- About Section -->
-                <div id="about" class="content-section section-hidden mb-10">
-                    <div class="prompt-line">
-                        <span class="terminal-prompt-full">
-                            <span class="terminal-blue glow-text font-semibold">anuradha@portfolio</span><span
-                                class="text-white">:</span><span class="terminal-yellow glow-text">~</span><span
-                                class="text-white">$ </span>
-                        </span>
-                        <span class="terminal-prompt-mobile terminal-yellow glow-text">$ </span>
-                        <span class="terminal-cyan">cat about.md | bat --theme=Nord</span>
-                    </div>
-                    <div class="command-output mt-6">
-                        <div class="glass-section rounded-2xl p-8 space-y-6">
-                            <div class="border-l-4 border-terminal-cyan pl-6">
-                                <h3 class="terminal-cyan glow-text text-2xl mb-4 font-bold"># About Me</h3>
-                                <p class="text-gray-200 leading-relaxed mb-6 text-lg">I'm a passionate developer who
-                                    transforms complex problems into elegant digital solutions. With 4+ years of
-                                    experience in full-stack development, I specialize in creating scalable applications
-                                    that deliver exceptional user experiences.</p>
-                                <p class="text-gray-300 leading-relaxed">My journey started with curiosity about how
-                                    things work under the hood. Now I build applications that millions of users interact
-                                    with daily, focusing on performance, security, and maintainability.</p>
-                            </div>
-
-                            <div class="grid md:grid-cols-3 gap-6">
-                                <div class="glass-section rounded-xl p-6 text-center">
-                                    <div class="terminal-green text-3xl mb-3 glow-text">🌟</div>
-                                    <h4 class="terminal-yellow font-semibold mb-2">Innovation</h4>
-                                    <p class="text-gray-300 text-sm">Always exploring cutting-edge technologies</p>
-                                </div>
-                                <div class="glass-section rounded-xl p-6 text-center">
-                                    <div class="terminal-purple text-3xl mb-3 glow-text">🎯</div>
-                                    <h4 class="terminal-yellow font-semibold mb-2">Precision</h4>
-                                    <p class="text-gray-300 text-sm">Attention to detail in every line of code</p>
-                                </div>
-                                <div class="glass-section rounded-xl p-6 text-center">
-                                    <div class="terminal-pink text-3xl mb-3 glow-text">⚡</div>
-                                    <h4 class="terminal-yellow font-semibold mb-2">Speed</h4>
-                                    <p class="text-gray-300 text-sm">Rapid development with quality focus</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SECTION 03: WORK
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="section section-sticky" id="work">
+        <span class="section-number">03</span>
+        <div class="scroll-content">
+            <div class="section-inner">
+                <div class="work-header reveal">
+                    <h2 class="work-heading">Featured Work</h2>
+                    <p class="work-subheading">A selection of projects I'm proud of</p>
                 </div>
-
-                <!-- Skills Section -->
-                <div id="skills" class="content-section section-hidden mb-10">
-                    <div class="prompt-line">
-                        <span class="terminal-prompt-full">
-                            <span class="terminal-blue glow-text font-semibold">anuradha@portfolio</span><span
-                                class="text-white">:</span><span class="terminal-yellow glow-text">~</span><span
-                                class="text-white">$ </span>
-                        </span>
-                        <span class="terminal-prompt-mobile terminal-yellow glow-text">$ </span>
-                        <span class="terminal-purple">jq . skills.json</span>
-                    </div>
-                    <div class="command-output mt-6">
-                        <div class="glass-section rounded-2xl p-8 overflow-x-auto">
-                            <pre class="text-sm md:text-base leading-relaxed"><span class="text-gray-300">{</span>
-  <span class="terminal-cyan glow-text">"frontend"</span>: { 
-    <span class="terminal-yellow">"frameworks"</span>: [<span class="terminal-green">"React"</span>, <span class="terminal-green">"Vue.js"</span>, <span class="terminal-green">"Next.js"</span>], 
-    <span class="terminal-yellow">"styling"</span>: [<span class="terminal-green">"Tailwind CSS"</span>, <span class="terminal-green">"SCSS"</span>], 
-    <span class="terminal-yellow">"tools"</span>: [<span class="terminal-green">"Vite"</span>, <span class="terminal-green">"TypeScript"</span>] 
-  },
-  <span class="terminal-cyan glow-text">"backend"</span>: { 
-    <span class="terminal-yellow">"languages"</span>: [<span class="terminal-green">"JavaScript"</span>, <span class="terminal-green">"Python"</span>, <span class="terminal-green">"Go"</span>, <span class="terminal-green">"C"</span>, <span class="terminal-green">"C++"</span>], 
-    <span class="terminal-yellow">"frameworks"</span>: [<span class="terminal-green">"Node.js"</span>, <span class="terminal-green">"Express"</span>, <span class="terminal-green">"FastAPI"</span>], 
-    <span class="terminal-yellow">"databases"</span>: [<span class="terminal-green">"PostgreSQL"</span>, <span class="terminal-green">"MongoDB"</span>, <span class="terminal-green">"Redis"</span>] 
-  },
-  <span class="terminal-cyan glow-text">"devops"</span>: { 
-    <span class="terminal-yellow">"cloud"</span>: [<span class="terminal-green">"AWS"</span>, <span class="terminal-green">"Google Cloud"</span>, <span class="terminal-green">"Azure"</span>], 
-    <span class="terminal-yellow">"tools"</span>: [<span class="terminal-green">"Docker"</span>, <span class="terminal-green">"Kubernetes"</span>, <span class="terminal-green">"GitHub Actions"</span>] 
-  },
-  <span class="terminal-cyan glow-text">"current_setup"</span>: { 
-    <span class="terminal-yellow">"editor"</span>: <span class="terminal-green">"VS Code"</span>, 
-    <span class="terminal-yellow">"terminal"</span>: <span class="terminal-green">"PowerShell 7"</span>, 
-    <span class="terminal-yellow">"os"</span>: <span class="terminal-green">"Apple / Windows"</span> 
-  }
-<span class="text-gray-300">}</span></pre>
+                <div class="projects-grid reveal-stagger">
+                    <article class="project-card">
+                        <div class="project-icon">⚡</div>
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-desc">
+                            Full-stack e-commerce with real-time inventory, AI recommendations,
+                            and seamless payment integration.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">PostgreSQL</span>
                         </div>
-                    </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-icon">🤖</div>
+                        <h3 class="project-title">AI Chat Assistant</h3>
+                        <p class="project-desc">
+                            Intelligent conversational AI with context-aware responses
+                            and multi-language support.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">OpenAI</span>
+                            <span class="project-tag">FastAPI</span>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-icon">📊</div>
+                        <h3 class="project-title">Analytics Dashboard</h3>
+                        <p class="project-desc">
+                            Real-time analytics platform with customizable widgets
+                            and automated reporting.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">D3.js</span>
+                            <span class="project-tag">Redis</span>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-icon">🔐</div>
+                        <h3 class="project-title">Auth Microservice</h3>
+                        <p class="project-desc">
+                            Enterprise-grade authentication with OAuth 2.0, MFA,
+                            and role-based access control.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Go</span>
+                            <span class="project-tag">JWT</span>
+                            <span class="project-tag">gRPC</span>
+                        </div>
+                    </article>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Projects Section -->
-                <div id="projects" class="content-section section-hidden mb-10">
-                    <div class="prompt-line">
-                        <span class="terminal-prompt-full">
-                            <span class="terminal-blue glow-text font-semibold">anuradha@portfolio</span><span
-                                class="text-white">:</span><span class="terminal-yellow glow-text">~</span><span
-                                class="text-white">$ </span>
-                        </span>
-                        <span class="terminal-prompt-mobile terminal-yellow glow-text">$ </span>
-                        <span class="terminal-green">find projects/ -type f -name "*.featured"</span>
-                    </div>
-                    <div class="command-output mt-6 space-y-6">
-                        <div class="project-card glass-section rounded-2xl p-8 neon-border">
-                            <div class="flex items-start justify-between mb-4">
-                                <h4 class="terminal-cyan glow-text text-xl font-bold">🌐 E-Commerce Platform</h4><span
-                                    class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm border border-green-500/30">Live</span>
-                            </div>
-                            <p class="text-gray-200 mb-4 leading-relaxed">Full-stack e-commerce solution with real-time
-                                inventory, payment processing, and admin dashboard, built for scalability.</p>
-                            <div class="flex flex-wrap gap-2 mb-4"><span
-                                    class="terminal-yellow text-sm px-3 py-1 bg-yellow-500/10 rounded-full border border-yellow-500/30">React</span><span
-                                    class="terminal-purple text-sm px-3 py-1 bg-purple-500/10 rounded-full border border-purple-500/30">Node.js</span><span
-                                    class="terminal-pink text-sm px-3 py-1 bg-pink-500/10 rounded-full border border-pink-500/30">PostgreSQL</span>
-                            </div>
-                            <div class="flex gap-4 text-sm"><a href="#" target="_blank"
-                                    class="terminal-cyan hover-glow">🔗 Live Demo</a><a href="#" target="_blank"
-                                    class="terminal-green hover-glow">📁 Source Code</a></div>
-                        </div>
-                        <div class="project-card glass-section rounded-2xl p-8 neon-border">
-                            <div class="flex items-start justify-between mb-4">
-                                <h4 class="terminal-cyan glow-text text-xl font-bold">🤖 AI-Powered Task Manager</h4>
-                                <span
-                                    class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm border border-purple-500/30">Beta</span>
-                            </div>
-                            <p class="text-gray-200 mb-4 leading-relaxed">Smart task management with AI-powered
-                                prioritization, NLP, and predictive scheduling for enhanced productivity.</p>
-                            <div class="flex flex-wrap gap-2 mb-4"><span
-                                    class="terminal-yellow text-sm px-3 py-1 bg-yellow-500/10 rounded-full border border-yellow-500/30">Vue.js</span><span
-                                    class="terminal-purple text-sm px-3 py-1 bg-purple-500/10 rounded-full border border-purple-500/30">Python</span><span
-                                    class="terminal-pink text-sm px-3 py-1 bg-pink-500/10 rounded-full border border-pink-500/30">OpenAI</span>
-                            </div>
-                            <div class="flex gap-4 text-sm"><a href="#" target="_blank"
-                                    class="terminal-cyan hover-glow">🔗 Try It Out</a><a href="#" target="_blank"
-                                    class="terminal-green hover-glow">📁 Repository</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Section -->
-                <div id="contact" class="content-section section-hidden mb-10">
-                    <div class="prompt-line">
-                        <span class="terminal-prompt-full">
-                            <span class="terminal-blue glow-text font-semibold">anuradha@portfolio</span><span
-                                class="text-white">:</span><span class="terminal-yellow glow-text">~</span><span
-                                class="text-white">$ </span>
-                        </span>
-                        <span class="terminal-prompt-mobile terminal-yellow glow-text">$ </span>
-                        <span class="terminal-green">chmod +x contact.sh && ./contact.sh</span>
-                    </div>
-                    <div class="command-output mt-6">
-                        <div class="glass-section rounded-2xl p-8 space-y-6">
-                            <div class="text-center mb-8">
-                                <h3 class="terminal-cyan glow-text text-2xl font-bold mb-4">#!/bin/bash</h3>
-                                <p class="terminal-green text-lg mb-2"># Let's build something incredible together! 🚀
-                                </p>
-                            </div>
-                            <div class="grid md:grid-cols-2 gap-8 items-start">
-                                <div class="space-y-4">
-                                    <div class="glass-section rounded-xl p-6 neon-border">
-                                        <div class="flex items-center gap-3 mb-2"><span
-                                                class="terminal-pink text-xl">📧</span><span
-                                                class="terminal-yellow font-semibold">EMAIL=</span></div>
-                                        <a href="mailto:hello@pumudu.online"
-                                            class="terminal-cyan hover-glow text-lg break-all">hello@pumudu.online</a>
-                                    </div>
-                                    <div class="glass-section rounded-xl p-6 neon-border">
-                                        <div class="flex items-center gap-3 mb-2"><span
-                                                class="terminal-purple text-xl">🐙</span><span
-                                                class="terminal-yellow font-semibold">GITHUB=</span></div>
-                                        <a href="https://github.com/anuradhapumudu" target="_blank"
-                                            class="terminal-cyan hover-glow text-lg break-all">github.com/annuradhapumudu</a>
-                                    </div>
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SECTION 04: SKILLS
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="section section-sticky" id="skills">
+        <span class="section-number">04</span>
+        <div class="scroll-content">
+            <div class="section-inner">
+                <div class="skills-container">
+                    <h2 class="skills-heading reveal">Technical Expertise</h2>
+                    <div class="skills-categories reveal-stagger">
+                        <div class="skill-category">
+                            <h3 class="skill-category-title">Frontend</h3>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">React / Next.js</span>
+                                    <span class="skill-level">95%</span>
                                 </div>
-                                <form id="contact-form" class="space-y-4">
-                                    <div>
-                                        <label for="name" class="block text-sm terminal-yellow mb-2">~ /name $</label>
-                                        <input type="text" id="name" name="name" required
-                                            class="w-full bg-black/20 p-3 rounded-lg border border-gray-600 focus:outline-none input-glow text-gray-200"
-                                            placeholder="Enter your name">
-                                    </div>
-                                    <div>
-                                        <label for="email" class="block text-sm terminal-yellow mb-2">~ /email $</label>
-                                        <input type="email" id="email" name="email" required
-                                            class="w-full bg-black/20 p-3 rounded-lg border border-gray-600 focus:outline-none input-glow text-gray-200"
-                                            placeholder="your.email@domain.com">
-                                    </div>
-                                    <div>
-                                        <label for="message" class="block text-sm terminal-yellow mb-2">~ /message
-                                            $</label>
-                                        <textarea id="message" name="message" rows="4" required
-                                            class="w-full bg-black/20 p-3 rounded-lg border border-gray-600 focus:outline-none input-glow text-gray-200 resize-vertical"
-                                            placeholder="Type your message here..."></textarea>
-                                    </div>
-                                    <button type="submit"
-                                        class="w-full terminal-green font-bold py-3 px-4 rounded-lg neon-border hover:bg-green-500/20 transition-all duration-300">SEND_MESSAGE</button>
-                                </form>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="--progress: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">TypeScript</span>
+                                    <span class="skill-level">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="--progress: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">CSS / Tailwind</span>
+                                    <span class="skill-level">92%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="--progress: 92%"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Tools Section -->
-                <div id="tools" class="content-section section-hidden mb-10">
-                    <div class="prompt-line">
-                        <span class="terminal-prompt-full">
-                            <span class="terminal-blue glow-text font-semibold">anuradha@portfolio</span><span
-                                class="text-white">:</span><span class="terminal-yellow glow-text">~</span><span
-                                class="text-white">$ </span>
-                        </span>
-                        <span class="terminal-prompt-mobile terminal-yellow glow-text">$ </span>
-                        <span class="terminal-pink">ls tools/ --icons</span>
-                    </div>
-                    <div class="command-output mt-6">
-                        <div class="glass-section rounded-2xl p-8 space-y-6">
-                            <div class="border-l-4 border-terminal-pink pl-6 mb-6">
-                                <h3 class="terminal-pink glow-text text-2xl mb-2 font-bold"># Developer Tools</h3>
-                                <p class="text-gray-300">Useful utilities I've built for everyday tasks.</p>
+                        <div class="skill-category">
+                            <h3 class="skill-category-title">Backend</h3>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Node.js / Express</span>
+                                    <span class="skill-level">93%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="--progress: 93%"></div>
+                                </div>
                             </div>
-
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <a href="tools/signature-generator.html"
-                                    class="glass-section rounded-xl p-6 neon-border block hover:scale-105 transition-all duration-300 no-underline">
-                                    <div class="flex items-center gap-4 mb-3">
-                                        <span class="text-3xl">✍️</span>
-                                        <div>
-                                            <h4 class="terminal-cyan glow-text text-xl font-bold">Signature Generator
-                                            </h4>
-                                            <p class="text-gray-400 text-sm">signature_generator.sh</p>
-                                        </div>
-                                    </div>
-                                    <p class="text-gray-300 mb-4">Create professional email signatures with a live
-                                        preview. Supports Gmail, Apple Mail, and more.</p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span
-                                            class="terminal-yellow text-xs px-3 py-1 bg-yellow-500/10 rounded-full border border-yellow-500/30">HTML</span>
-                                        <span
-                                            class="terminal-purple text-xs px-3 py-1 bg-purple-500/10 rounded-full border border-purple-500/30">CSS</span>
-                                        <span
-                                            class="terminal-green text-xs px-3 py-1 bg-green-500/10 rounded-full border border-green-500/30">JavaScript</span>
-                                    </div>
-                                </a>
-
-                                <div
-                                    class="glass-section rounded-xl p-6 border border-dashed border-gray-600 flex items-center justify-center">
-                                    <div class="text-center">
-                                        <span class="text-3xl mb-2 block opacity-50">🚀</span>
-                                        <p class="text-gray-500">More tools coming soon...</p>
-                                    </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Python / FastAPI</span>
+                                    <span class="skill-level">88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="--progress: 88%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">PostgreSQL / MongoDB</span>
+                                    <span class="skill-level">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="--progress: 85%"></div>
                                 </div>
                             </div>
                         </div>
@@ -418,10 +295,69 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Load configuration first, then main script -->
-    <script src="js/config.js"></script>
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SECTION 05: CONTACT
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="section section-sticky" id="contact">
+        <span class="section-number">05</span>
+        <div class="scroll-content">
+            <div class="section-inner">
+                <div class="contact-container">
+                    <h2 class="contact-heading reveal">
+                        Let's build<br>something great
+                    </h2>
+                    <p class="contact-subheading reveal">
+                        I'm always open to discussing new projects,
+                        creative ideas, or opportunities to be part of your vision.
+                    </p>
+                    <a href="mailto:hello@pumudu.online" class="contact-email reveal">
+                        hello@pumudu.online
+                    </a>
+                    <div class="social-links reveal">
+                        <a href="https://github.com/anuradhapumudu" target="_blank" class="social-link"
+                            aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com/in/pumudu-anuradha-5b5a85313" target="_blank" class="social-link"
+                            aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/pumudu" target="_blank" class="social-link" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                    </div>
+                    <!-- Featured Tool -->
+                    <div class="featured-tool reveal">
+                        <a href="tools/signature/" class="featured-tool-card">
+                            <span class="featured-tool-icon">✍️</span>
+                            <div class="featured-tool-content">
+                                <h4 class="featured-tool-title">Signature Generator</h4>
+                                <p class="featured-tool-desc">Create professional email signatures with AI avatars</p>
+                            </div>
+                            <span class="featured-tool-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <p>© 2024 Pumudu Anuradha. All rights reserved.</p>
+            </footer>
+        </div>
+    </section>
+
+
+    <!-- Scripts -->
     <script src="js/script.js"></script>
 </body>
 

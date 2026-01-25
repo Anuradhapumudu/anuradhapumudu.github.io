@@ -1,91 +1,15 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   Portfolio Animations
-   Modern scroll-triggered effects and transitions
+   LUXE MINIMAL - Animations
+   Premium motion design for unforgettable experience
    ═══════════════════════════════════════════════════════════════════════════ */
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   Gradient Background Animation
+   Text Reveal - Split Lines
    ───────────────────────────────────────────────────────────────────────────── */
-@keyframes gradientShift {
-
-    0%,
-    100% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   Floating Animation for Orbs
-   ───────────────────────────────────────────────────────────────────────────── */
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0px) translateX(0px) scale(1);
-        opacity: 0.5;
-    }
-
-    25% {
-        transform: translateY(-35px) translateX(25px) scale(1.1);
-        opacity: 0.6;
-    }
-
-    50% {
-        transform: translateY(-15px) translateX(-20px) scale(0.95);
-        opacity: 0.4;
-    }
-
-    75% {
-        transform: translateY(-25px) translateX(15px) scale(1.05);
-        opacity: 0.55;
-    }
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   Cursor Blink Animation
-   ───────────────────────────────────────────────────────────────────────────── */
-@keyframes blink {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   Typewriter Effect
-   ───────────────────────────────────────────────────────────────────────────── */
-@keyframes typing {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 100%;
-    }
-}
-
-.typewriter {
-    overflow: hidden;
-    white-space: nowrap;
-    animation: typing 2s steps(20, end);
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   Fade In Up Animation
-   ───────────────────────────────────────────────────────────────────────────── */
-@keyframes fadeInUp {
+@keyframes revealUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(100%);
     }
 
     to {
@@ -94,78 +18,67 @@
     }
 }
 
-.fade-in {
-    animation: fadeInUp 0.8s ease-out forwards;
+.text-reveal {
+    overflow: hidden;
+}
+
+.text-reveal-inner {
+    display: block;
+    animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-play-state: paused;
+}
+
+.visible .text-reveal-inner {
+    animation-play-state: running;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Fade In Up
+   ───────────────────────────────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     opacity: 0;
-    transform: translateY(30px);
+}
+
+/* Delays */
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.2s;
+}
+
+.delay-3 {
+    animation-delay: 0.3s;
+}
+
+.delay-4 {
+    animation-delay: 0.4s;
+}
+
+.delay-5 {
+    animation-delay: 0.5s;
+}
+
+.delay-6 {
+    animation-delay: 0.6s;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   Particle Float Animation
-   ───────────────────────────────────────────────────────────────────────────── */
-@keyframes particleFloat {
-    0% {
-        transform: translateY(100vh) translateX(0);
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 0.8;
-    }
-
-    90% {
-        opacity: 0.8;
-    }
-
-    100% {
-        transform: translateY(-100px) translateX(80px);
-        opacity: 0;
-    }
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   Pulse Glow Animation
-   ───────────────────────────────────────────────────────────────────────────── */
-@keyframes pulseGlow {
-
-    0%,
-    100% {
-        box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
-    }
-
-    50% {
-        box-shadow: 0 0 40px rgba(0, 255, 136, 0.5), 0 0 60px rgba(0, 255, 255, 0.2);
-    }
-}
-
-.pulse-glow {
-    animation: pulseGlow 3s ease-in-out infinite;
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   Shimmer Loading Effect
-   ───────────────────────────────────────────────────────────────────────────── */
-@keyframes shimmer {
-    0% {
-        background-position: -200% 0;
-    }
-
-    100% {
-        background-position: 200% 0;
-    }
-}
-
-.shimmer {
-    background: linear-gradient(90deg,
-            rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.1) 50%,
-            rgba(255, 255, 255, 0) 100%);
-    background-size: 200% 100%;
-    animation: shimmer 2s infinite;
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   Scale In Animation
+   Scale In
    ───────────────────────────────────────────────────────────────────────────── */
 @keyframes scaleIn {
     from {
@@ -180,16 +93,17 @@
 }
 
 .scale-in {
-    animation: scaleIn 0.5s ease-out forwards;
+    animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   Slide In Animations
+   Slide In
    ───────────────────────────────────────────────────────────────────────────── */
 @keyframes slideInLeft {
     from {
         opacity: 0;
-        transform: translateX(-50px);
+        transform: translateX(-60px);
     }
 
     to {
@@ -201,7 +115,7 @@
 @keyframes slideInRight {
     from {
         opacity: 0;
-        transform: translateX(50px);
+        transform: translateX(60px);
     }
 
     to {
@@ -210,18 +124,61 @@
     }
 }
 
-.slide-left {
-    animation: slideInLeft 0.6s ease-out forwards;
+.slide-in-left {
+    animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
 }
 
-.slide-right {
-    animation: slideInRight 0.6s ease-out forwards;
+.slide-in-right {
+    animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   Bounce Animation
+   Gradient Shimmer
    ───────────────────────────────────────────────────────────────────────────── */
-@keyframes bounce {
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.shimmer {
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.08) 50%,
+            transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Pulse Glow
+   ───────────────────────────────────────────────────────────────────────────── */
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 rgba(59, 130, 246, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(59, 130, 246, 0.4);
+    }
+}
+
+.pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Float Animation
+   ───────────────────────────────────────────────────────────────────────────── */
+@keyframes float {
 
     0%,
     100% {
@@ -233,121 +190,111 @@
     }
 }
 
-.bounce {
-    animation: bounce 2s ease-in-out infinite;
+.float {
+    animation: float 4s ease-in-out infinite;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   Rotation Animation
+   Number Count Animation (via JS)
    ───────────────────────────────────────────────────────────────────────────── */
-@keyframes rotate {
+.count-up {
+    font-variant-numeric: tabular-nums;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Skill Bar Fill
+   ───────────────────────────────────────────────────────────────────────────── */
+@keyframes fillBar {
     from {
-        transform: rotate(0deg);
+        width: 0%;
     }
 
     to {
-        transform: rotate(360deg);
+        width: var(--progress);
     }
 }
 
-.rotate {
-    animation: rotate 20s linear infinite;
+.skill-progress.animate {
+    animation: fillBar 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   Text Gradient Animation
-   ───────────────────────────────────────────────────────────────────────────── */
-@keyframes gradientText {
-
-    0%,
-    100% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-}
-
-.gradient-text-animated {
-    background: linear-gradient(135deg, #00ffff, #dd88ff, #00ff88, #00ffff);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientText 5s ease infinite;
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   Animation Delays (for staggered effects)
-   ───────────────────────────────────────────────────────────────────────────── */
-.delay-100 {
-    animation-delay: 0.1s;
-}
-
-.delay-200 {
-    animation-delay: 0.2s;
-}
-
-.delay-300 {
-    animation-delay: 0.3s;
-}
-
-.delay-400 {
-    animation-delay: 0.4s;
-}
-
-.delay-500 {
-    animation-delay: 0.5s;
-}
-
-.delay-600 {
-    animation-delay: 0.6s;
-}
-
-.delay-700 {
-    animation-delay: 0.7s;
-}
-
-.delay-800 {
-    animation-delay: 0.8s;
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   Hover Transition Effects
+   Hover Effects
    ───────────────────────────────────────────────────────────────────────────── */
 .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hover-lift:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px);
 }
 
 .hover-scale {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hover-scale:hover {
     transform: scale(1.05);
 }
 
+.hover-glow {
+    transition: box-shadow 0.4s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
+}
+
 /* ─────────────────────────────────────────────────────────────────────────────
-   Accessibility: Reduced Motion
+   Magnetic Effect (via JS)
+   ───────────────────────────────────────────────────────────────────────────── */
+.magnetic {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Link Underline Animation
+   ───────────────────────────────────────────────────────────────────────────── */
+.link-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link-underline:hover::after {
+    width: 100%;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Cursor Blend (for light/dark sections)
+   ───────────────────────────────────────────────────────────────────────────── */
+.cursor-invert {
+    cursor: none;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Reduced Motion
    ───────────────────────────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
 
-    .typewriter,
-    .fade-in,
+    .fade-in-up,
     .scale-in,
-    .slide-left,
-    .slide-right,
-    .bounce,
-    .rotate,
+    .slide-in-left,
+    .slide-in-right,
+    .text-reveal-inner,
+    .float,
     .shimmer,
-    .pulse-glow,
-    .gradient-text-animated {
+    .pulse-glow {
         animation: none;
         opacity: 1;
         transform: none;
@@ -356,5 +303,10 @@
     .hover-lift:hover,
     .hover-scale:hover {
         transform: none;
+    }
+
+    .skill-progress.animate {
+        animation: none;
+        width: var(--progress);
     }
 }
