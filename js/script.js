@@ -28,6 +28,7 @@
         initTechSphere();
         initProjectCards();
         initContactForm(); // Contact form handler
+        initTypingAnimation(); // Typing animation for hero name
     });
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -188,19 +189,39 @@
         const element = document.getElementById('typing-name');
         if (!element) return;
 
-        const text = 'Pumudu Anuradha.';
-        let index = 0;
+        const line1 = 'Pumudu';
+        const line2 = 'Anuradha';
+        let currentLine = 1;
+        let charIndex = 0;
 
-        function type() {
-            if (index < text.length) {
-                element.textContent += text.charAt(index);
-                index++;
-                const delay = text.charAt(index - 1) === ' ' ? 150 : 80 + Math.random() * 40;
-                setTimeout(type, delay);
+        // Clear content initially (it should be empty from HTML, but just in case)
+        element.innerHTML = '';
+
+        function typeChar() {
+            if (currentLine === 1) {
+                if (charIndex < line1.length) {
+                    element.innerHTML += line1.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeChar, 100 + Math.random() * 50);
+                } else {
+                    // Finished line 1, add break and move to line 2
+                    element.innerHTML += '<br>';
+                    currentLine = 2;
+                    charIndex = 0;
+                    setTimeout(typeChar, 300); // Pause before second line
+                }
+            } else {
+                if (charIndex < line2.length) {
+                    element.innerHTML += line2.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeChar, 100 + Math.random() * 50);
+                }
+                // Animation complete
             }
         }
 
-        setTimeout(type, 800);
+        // Start after a slight delay
+        setTimeout(typeChar, 800);
     }
 
     // ═══════════════════════════════════════════════════════════════════════════

@@ -267,8 +267,8 @@
 
         try {
             const prompt = `Wide panoramic header background, minimalist professional aesthetic, ${jobTitle} theme, abstract geometric, soft lighting, negative space, high resolution, 8k`;
-            // Removed model=flux to use default model (more reliable) and fixed dimensions
-            const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=600&height=150&nologo=true&seed=${hashCode(jobTitle)}`;
+            // Using 'turbo' model for faster generation and lower rate limit impact
+            const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=600&height=150&model=turbo&nologo=true&seed=${hashCode(jobTitle)}`;
 
             const loaded = await preloadImage(imageUrl);
             if (loaded) {

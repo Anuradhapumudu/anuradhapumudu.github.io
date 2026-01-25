@@ -1354,3 +1354,17 @@ h3 {
     transform: translateY(0) scale(1);
     transition: opacity 0.1s linear, transform 0.1s linear;
 }
+/* ─────────────────────────────────────────────────────────────────────────────
+   Typing Animation Cursor
+   ───────────────────────────────────────────────────────────────────────────── */
+.typing-cursor {
+    color: var(--accent);
+    font-weight: 300;
+    margin-left: 2px;
+    animation: blinkCursor 1s step-end infinite;
+}
+
+@keyframes blinkCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
