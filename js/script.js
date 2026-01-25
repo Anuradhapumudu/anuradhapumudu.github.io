@@ -159,6 +159,26 @@
             lastScrollY = scrollY;
             requestAnimationFrame(updateScrollEffects);
         }
+
+        // Also handle non-sticky sections (like contact)
+        function handleNonStickySections() {
+            const contactSection = document.getElementById('contact');
+            if (!contactSection) return;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
+                            el.classList.add('visible');
+                        });
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            observer.observe(contactSection);
+        }
+
+        handleNonStickySections();
     }
 
     // ═══════════════════════════════════════════════════════════════════════════
