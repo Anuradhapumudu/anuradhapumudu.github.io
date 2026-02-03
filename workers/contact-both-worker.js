@@ -2,123 +2,155 @@
 // Sends to both your email and Telegram simultaneously
 
 export default {
-    async fetch(request, env) {
-        // Handle CORS preflight
-        if (request.method === 'OPTIONS') {
-            return new Response(null, {
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-                    'Access-Control-Allow-Headers': 'Content-Type',
-                }
-            });
+  async fetch(request, env) {
+    // Handle CORS preflight
+    if (request.method === 'OPTIONS') {
+      return new Response(null, {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'POST, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type',
         }
-
-        if (request.method !== 'POST') {
-            return new Response('Method not allowed', { status: 405 });
-        }
-
-        try {
-            const { name, email, phone, message } = await request.json();
-
-            // Validate inputs
-            if (!name || !email || !message) {
-                return new Response(JSON.stringify({ error: 'Missing required fields' }), {
-                    status: 400,
-                    headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
-                });
-            }
-
-            // ========================================
-            // CONFIGURATION - UPDATE THESE:
-            const RESEND_API_KEY = 're_BBZuC5gK_2Ve819e7V4dxPnokPGeJfGBv';
-            const TELEGRAM_BOT_TOKEN = '7598354368:AAHgb-tz4tNs_EJbC-LBvzkAwmBaU4t_plE';
-            const TELEGRAM_CHAT_ID = '-4870773780';
-            const YOUR_EMAIL = 'pumudu820@gmail.com';
-            // ========================================
-
-            // Get Cloudflare headers for visitor info
-            const cf = request.cf || {};
-            const headers = request.headers;
-
-            const visitorInfo = {
-                ip: headers.get('CF-Connecting-IP') || 'Unknown',
-                country: cf.country || 'Unknown',
-                city: cf.city || 'Unknown',
-                region: cf.region || 'Unknown',
-                timezone: cf.timezone || 'Unknown',
-                colo: cf.colo || 'Unknown',
-                asn: cf.asn || 'Unknown',
-                asOrganization: cf.asOrganization || 'Unknown',
-                userAgent: headers.get('User-Agent') || 'Unknown',
-                referer: headers.get('Referer') || 'Direct',
-                timestamp: new Date().toISOString(),
-            };
-
-            // Send both in parallel
-            const [emailResult, telegramResult] = await Promise.allSettled([
-                // Send Email via Resend
-                fetch('https://api.resend.com/emails', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${RESEND_API_KEY}`,
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        from: 'Portfolio Contact <onboarding@resend.dev>',
-                        to: YOUR_EMAIL,
-                        reply_to: email,
-                        subject: `🆕 New message from ${name}`,
-                        html: generateEmailHTML(name, email, phone, message, visitorInfo)
-                    })
-                }),
-
-                // Send Telegram Message
-                fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        chat_id: TELEGRAM_CHAT_ID,
-                        text: generateTelegramMessage(name, email, phone, message, visitorInfo),
-                        parse_mode: 'HTML'
-                    })
-                })
-            ]);
-
-            // Check results
-            const emailSuccess = emailResult.status === 'fulfilled' && emailResult.value.ok;
-            const telegramSuccess = telegramResult.status === 'fulfilled' && telegramResult.value.ok;
-
-            if (emailSuccess || telegramSuccess) {
-                return new Response(JSON.stringify({
-                    success: true,
-                    email: emailSuccess,
-                    telegram: telegramSuccess
-                }), {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Access-Control-Allow-Origin': '*'
-                    }
-                });
-            } else {
-                throw new Error('Both email and telegram failed');
-            }
-        } catch (error) {
-            console.error('Worker error:', error);
-            return new Response(JSON.stringify({ error: 'Failed to send message' }), {
-                status: 500,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                }
-            });
-        }
+      });
     }
+
+    if (request.method !== 'POST') {
+      return new Response('Method not allowed', { status: 405 });
+    }
+
+    try {
+
+
+
+      // ========================================
+      // CONFIGURATION - UPDATE THESE:
+      const RESEND_API_KEY = 're_BBZuC5gK_2Ve819e7V4dxPnokPGeJfGBv';
+      const TELEGRAM_BOT_TOKEN = '7598354368:AAHgb-tz4tNs_EJbC-LBvzkAwmBaU4t_plE';
+      const TELEGRAM_CHAT_ID = '-4870773780';
+      const YOUR_EMAIL = 'pumudu820@gmail.com';
+      const TURNSTILE_SECRET_KEY = '0x4AAAAAACXURRANa64VUIlaqngzux2XzgA'; // REPLACE WITH ACTUAL SECRET KEY
+      // ========================================
+
+      // Validate inputs (including token)
+      const { name, email, phone, message, token } = await request.json();
+
+      if (!name || !email || !message) {
+        return new Response(JSON.stringify({ error: 'Missing required fields' }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+        });
+      }
+
+      // Verify Turnstile Token
+      if (!token) {
+        return new Response(JSON.stringify({ error: 'Missing CAPTCHA token' }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+        });
+      }
+
+      const ip = request.headers.get('CF-Connecting-IP');
+      const formData = new FormData();
+      formData.append('secret', TURNSTILE_SECRET_KEY);
+      formData.append('response', token);
+      formData.append('remoteip', ip);
+
+      const url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+      const result = await fetch(url, {
+        body: formData,
+        method: 'POST',
+      });
+
+      const outcome = await result.json();
+      if (!outcome.success) {
+        return new Response(JSON.stringify({ error: 'CAPTCHA verification failed', details: outcome['error-codes'] }), {
+          status: 403,
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+        });
+      }
+
+      // Get Cloudflare headers for visitor info
+      const cf = request.cf || {};
+      const headers = request.headers;
+
+      const visitorInfo = {
+        ip: headers.get('CF-Connecting-IP') || 'Unknown',
+        country: cf.country || 'Unknown',
+        city: cf.city || 'Unknown',
+        region: cf.region || 'Unknown',
+        timezone: cf.timezone || 'Unknown',
+        colo: cf.colo || 'Unknown',
+        asn: cf.asn || 'Unknown',
+        asOrganization: cf.asOrganization || 'Unknown',
+        userAgent: headers.get('User-Agent') || 'Unknown',
+        referer: headers.get('Referer') || 'Direct',
+        timestamp: new Date().toISOString(),
+      };
+
+      // Send both in parallel
+      const [emailResult, telegramResult] = await Promise.allSettled([
+        // Send Email via Resend
+        fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${RESEND_API_KEY}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            from: 'Portfolio Contact <onboarding@resend.dev>',
+            to: YOUR_EMAIL,
+            reply_to: email,
+            subject: `🆕 New message from ${name}`,
+            html: generateEmailHTML(name, email, phone, message, visitorInfo)
+          })
+        }),
+
+        // Send Telegram Message
+        fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID,
+            text: generateTelegramMessage(name, email, phone, message, visitorInfo),
+            parse_mode: 'HTML'
+          })
+        })
+      ]);
+
+      // Check results
+      const emailSuccess = emailResult.status === 'fulfilled' && emailResult.value.ok;
+      const telegramSuccess = telegramResult.status === 'fulfilled' && telegramResult.value.ok;
+
+      if (emailSuccess || telegramSuccess) {
+        return new Response(JSON.stringify({
+          success: true,
+          email: emailSuccess,
+          telegram: telegramSuccess
+        }), {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          }
+        });
+      } else {
+        throw new Error('Both email and telegram failed');
+      }
+    } catch (error) {
+      console.error('Worker error:', error);
+      return new Response(JSON.stringify({ error: 'Failed to send message' }), {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
+      });
+    }
+  }
 };
 
 // Generate Telegram Message
 function generateTelegramMessage(name, email, phone, message, info) {
-    return `
+  return `
 🆕 <b>New Contact Form Submission</b>
 
 👤 <b>Contact Details:</b>
@@ -144,7 +176,7 @@ ${message}
 
 // Generate Email HTML
 function generateEmailHTML(name, email, phone, message, info) {
-    return `
+  return `
 <!DOCTYPE html>
 <html>
 <head>

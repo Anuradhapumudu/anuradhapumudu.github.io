@@ -405,9 +405,17 @@
             const phone = document.getElementById('contact-phone')?.value.trim() || '';
             const message = document.getElementById('contact-message').value.trim();
 
+            // Get Turnstile token
+            const turnstileToken = new FormData(form).get('cf-turnstile-response');
+
             // Validate
             if (!name || !email || !message) {
                 showStatus('Please fill in all fields.', 'error');
+                return;
+            }
+
+            if (!turnstileToken) {
+                showStatus('Please complete the CAPTCHA.', 'error');
                 return;
             }
 
@@ -427,7 +435,7 @@
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ name, email, phone, message })
+                    body: JSON.stringify({ name, email, phone, message, token: turnstileToken })
                 });
 
                 if (response.ok) {
