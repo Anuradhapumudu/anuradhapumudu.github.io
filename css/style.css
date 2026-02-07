@@ -1002,6 +1002,167 @@ a {
     color: var(--text-secondary);
 }
 
+/* Tubes Cursor Overlay */
+#tubes-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    pointer-events: none;
+    /* Allow clicks to pass through */
+    mix-blend-mode: screen;
+    /* Optional: might look cool blending */
+}
+
+/* --- HYPER SCROLL EFFECTS --- */
+
+/* Post Processing Overlays */
+.scanlines {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0) 50%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.2));
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.6;
+}
+
+.vignette {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, transparent 40%, #000 120%);
+    z-index: 11;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.noise {
+    position: fixed;
+    inset: 0;
+    z-index: 12;
+    opacity: 0.05;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* HUD */
+.hud {
+    position: fixed;
+    inset: 1.5rem;
+    z-index: 20;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: monospace;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .hud {
+        inset: 0.5rem;
+        font-size: 9px;
+    }
+}
+
+.hud-top,
+.hud-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hud strong {
+    color: var(--accent);
+}
+
+.hud-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 0 1rem;
+    position: relative;
+}
+
+.hud-line::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -2px;
+    width: 5px;
+    height: 5px;
+    background: var(--accent);
+}
+
+/* Metaballs Background */
+#metaballs-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    /* Deepest background */
+    pointer-events: none;
+    /* Let clicks pass to canvas/content */
+}
+
+/* Star Field */
+#star-field {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    /* Behind content, on top of metaballs */
+    background: transparent;
+    /* Make transparent to see metaballs */
+    perspective: 1000px;
+    overflow: hidden;
+    mix-blend-mode: overlay;
+    /* Blend stars with metaballs */
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    transform: translate(-50%, -50%);
+    /* Will be animated in JS */
+}
+
+/* Adjust scrollbar for Lenis */
+html.lenis {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
 .featured-tool-arrow {
     font-size: 1.5rem;
     color: var(--accent);

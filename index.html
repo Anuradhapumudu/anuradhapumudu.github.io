@@ -33,11 +33,45 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <!-- Cloudflare Turnstile -->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
 </head>
 
 <body>
+    <!-- Tubes Cursor Canvas -->
+    <canvas id="tubes-canvas"></canvas>
+
+    <!-- Metaballs Background -->
+    <div id="metaballs-container"></div>
+
+    <!-- Hyper Scroll Overlays -->
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+    <div class="noise"></div>
+    <div id="star-field"></div>
+
+    <!-- HUD -->
+    <div class="hud">
+        <div class="hud-top">
+            <span>SYS.READY</span>
+            <div class="hud-line"></div>
+            <span>FPS: <strong id="fps">60</strong></span>
+        </div>
+        <div class="center-nav"
+            style="position: fixed; top: 50%; left: 1rem; transform: translateY(-50%) rotate(180deg); writing-mode: vertical-rl; z-index: 20; color: rgba(255,255,255,0.5); font-family: monospace; font-size: 10px; pointer-events: none;">
+            SCROLL VELOCITY // <strong id="vel-readout">0.00</strong>
+        </div>
+        <div class="hud-bottom">
+            <span>COORD: <strong id="coord">000.000</strong></span>
+            <div class="hud-line"></div>
+            <span>VER 2.0.4 [BETA]</span>
+        </div>
+    </div>
+
     <!-- Scroll Progress -->
     <div class="scroll-progress">
         <div class="scroll-progress-bar" id="scroll-progress"></div>
@@ -348,6 +382,9 @@
 
     <!-- Scripts -->
     <script src="js/script.js"></script>
+    <script type="module" src="js/tubes-cursor.js"></script>
+    <script type="module" src="js/hyper-effects.js"></script>
+    <script type="module" src="js/metaballs.js"></script>
 </body>
 
 </html>
