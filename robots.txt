@@ -1,0 +1,8 @@
+# Robots.txt for Pumudu Anuradha Portfolio
+# https://pumudu.online/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://pumudu.online/sitemap.xml

@@ -1,390 +1,704 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <script>
-        (function () {
-            const saved = localStorage.getItem('luxe-theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const theme = saved || (prefersDark ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', theme);
-        })();
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pumudu Anuradha | Full-Stack Developer</title>
-    <meta name="description"
-        content="Full-stack developer crafting exceptional digital experiences. Building the future, one line of code at a time.">
-    <meta name="keywords" content="full-stack developer, web developer, React, Node.js, Python, portfolio">
-    <meta name="author" content="Pumudu Anuradha">
-    <meta name="theme-color" content="#0a0a0a">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pumudu Anuradha — Full-Stack Developer & DevOps Engineer | Portfolio</title>
+  <meta name="description" content="Pumudu Anuradha is a Full-Stack Developer, DevOps Engineer, and AI/ML enthusiast from UCSC Sri Lanka. Specializing in Java, Python, TypeScript, React, AWS, Azure, and cloud-native architectures. View projects, skills, and get in touch." />
+  <meta name="keywords" content="Pumudu Anuradha, Pumudu, Anuradha, Full-Stack Developer, DevOps Engineer, Software Engineer, Cloud Architect, Machine Learning, AI, UCSC, University of Colombo, Sri Lanka, Java Developer, Python Developer, TypeScript, React, AWS, Azure, Portfolio, Web Developer, Backend Developer, CeylonProxy, SwiftLogistics, FarmerConnect" />
+  <meta name="author" content="Pumudu Anuradha" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <link rel="canonical" href="https://pumudu.online/" />
+  <meta name="theme-color" content="#0a0a0f" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Pumudu Anuradha | Full-Stack Developer">
-    <meta property="og:description" content="Full-stack developer crafting exceptional digital experiences.">
-    <meta property="og:type" content="website">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pumudu.online/" />
+  <meta property="og:title" content="Pumudu Anuradha — Full-Stack Developer & DevOps Engineer" />
+  <meta property="og:description" content="Full-Stack Developer, DevOps Engineer, and AI/ML enthusiast from UCSC Sri Lanka. Building scalable systems with Java, Python, TypeScript, React, AWS, and Azure." />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/106007410?v=4" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Pumudu Anuradha Portfolio" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pumudu Anuradha — Full-Stack Developer & DevOps Engineer" />
+  <meta name="twitter:description" content="Full-Stack Developer, DevOps Engineer, and AI/ML enthusiast from UCSC Sri Lanka. View my projects and get in touch." />
+  <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/106007410?v=4" />
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <!-- Cloudflare Turnstile -->
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <!-- Lenis Smooth Scroll -->
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Pumudu Anuradha",
+    "url": "https://pumudu.online/",
+    "image": "https://avatars.githubusercontent.com/u/106007410?v=4",
+    "jobTitle": "Full-Stack Developer & DevOps Engineer",
+    "description": "Computer Science undergraduate at UCSC, passionate about full-stack development, DevOps, cloud infrastructure, AI/ML, and cybersecurity.",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Colombo School of Computing",
+      "url": "https://ucsc.cmb.ac.lk/"
+    },
+    "knowsAbout": ["Full-Stack Development", "DevOps", "Cloud Computing", "Machine Learning", "Cybersecurity", "Java", "Python", "TypeScript", "React", "AWS", "Azure", "Docker", "Kubernetes"],
+    "sameAs": [
+      "https://github.com/Anuradhapumudu",
+      "https://linkedin.com/"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Colombo",
+      "addressCountry": "LK"
+    }
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script type="module" crossorigin src="/assets/index-CVx-plS6.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CefBPufI.css">
 </head>
-
 <body>
-    <!-- Tubes Cursor Canvas -->
-    <canvas id="tubes-canvas"></canvas>
-
-    <!-- Metaballs Background -->
-    <div id="metaballs-container"></div>
-
-    <!-- Hyper Scroll Overlays -->
-    <div class="scanlines"></div>
-    <div class="vignette"></div>
-    <div class="noise"></div>
-    <div id="star-field"></div>
-
-    <!-- HUD -->
-    <div class="hud">
-        <div class="hud-top">
-            <span>SYS.READY</span>
-            <div class="hud-line"></div>
-            <span>FPS: <strong id="fps">60</strong></span>
-        </div>
-        <div class="center-nav"
-            style="position: fixed; top: 50%; left: 1rem; transform: translateY(-50%) rotate(180deg); writing-mode: vertical-rl; z-index: 20; color: rgba(255,255,255,0.5); font-family: monospace; font-size: 10px; pointer-events: none;">
-            SCROLL VELOCITY // <strong id="vel-readout">0.00</strong>
-        </div>
-        <div class="hud-bottom">
-            <span>COORD: <strong id="coord">000.000</strong></span>
-            <div class="hud-line"></div>
-            <span>VER 2.0.4 [BETA]</span>
-        </div>
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-bg"></div>
+    <div class="preloader-content">
+      <!-- Orbital Rings -->
+      <div class="preloader-orbit orbit-1"></div>
+      <div class="preloader-orbit orbit-2"></div>
+      <div class="preloader-orbit orbit-3"></div>
+      <!-- Particle dots -->
+      <div class="preloader-particles">
+        <span class="particle p1"></span>
+        <span class="particle p2"></span>
+        <span class="particle p3"></span>
+        <span class="particle p4"></span>
+        <span class="particle p5"></span>
+        <span class="particle p6"></span>
+      </div>
+      <!-- Logo -->
+      <div class="preloader-logo">
+        <span class="preloader-letter">P</span>
+      </div>
+      <!-- Glow pulse -->
+      <div class="preloader-glow"></div>
     </div>
-
-    <!-- Scroll Progress -->
-    <div class="scroll-progress">
-        <div class="scroll-progress-bar" id="scroll-progress"></div>
+    <!-- Progress -->
+    <div class="preloader-bottom">
+      <div class="preloader-progress">
+        <div class="preloader-progress-bar" id="preloader-bar"></div>
+      </div>
+      <p class="preloader-tagline">Building something awesome<span class="preloader-dots"></span></p>
     </div>
+  </div>
 
-    <!-- Section Navigation -->
-    <nav class="section-nav" id="section-nav">
-        <button class="section-nav-item active" data-section="hero" aria-label="Go to hero section"></button>
-        <button class="section-nav-item" data-section="about" aria-label="Go to about section"></button>
-        <button class="section-nav-item" data-section="work" aria-label="Go to work section"></button>
-        <button class="section-nav-item" data-section="skills" aria-label="Go to skills section"></button>
-        <button class="section-nav-item" data-section="contact" aria-label="Go to contact section"></button>
-    </nav>
+  <!-- Animated Background -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="bg-glow bg-glow-3"></div>
 
-    <!-- Theme Toggle -->
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-    </button>
+  <!-- Cursor Glow -->
+  <div id="cursor-glow" class="cursor-glow"></div>
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         SECTION 01: HERO
-         ═══════════════════════════════════════════════════════════════════════ -->
-    <section class="section hero section-sticky" id="hero">
-        <span class="section-number">01</span>
+  <!-- Navigation -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" id="nav-logo">
+        <span class="logo-bracket">&lt;</span>PA<span class="logo-bracket">/&gt;</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="#about" class="nav-link" data-section="about">About</a>
+        <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+        <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+        <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+      </div>
+      <a href="https://github.com/Anuradhapumudu" target="_blank" class="nav-github" id="nav-github">
+        <i class="bi bi-github"></i>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
-        <!-- 3D Floating Shapes Background (Subtler now) -->
-        <div class="floating-shapes" aria-hidden="true">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Available for Opportunities</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-greeting">Hi, I'm</span>
+        <span class="hero-name">Pumudu<br/>Anuradha</span>
+      </h1>
+      <div class="hero-roles">
+        <span class="role-text" id="role-text"></span>
+        <span class="role-cursor">|</span>
+      </div>
+      <p class="hero-description">
+        UCSC undergraduate building the future — one commit at a time. 
+        Passionate about full-stack development, DevOps pipelines, cloud infrastructure, and cybersecurity.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary" id="btn-projects">
+          <span>View Projects</span>
+          <i class="bi bi-arrow-up-right"></i>
+        </a>
+        <a href="#contact" class="btn btn-secondary" id="btn-contact">
+          <span>Get in Touch</span>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number" data-count="4">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-count="20">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Technologies</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-count="250">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Commits</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="code-window">
+        <div class="code-header">
+          <div class="code-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="code-filename">about_me.js</span>
+        </div>
+        <pre class="code-content"><code><span class="code-keyword">const</span> <span class="code-variable">pumudu</span> = {
+  <span class="code-property">role</span>: <span class="code-string">"Full-Stack Developer"</span>,
+  <span class="code-property">university</span>: <span class="code-string">"UCSC"</span>,
+  <span class="code-property">languages</span>: [
+    <span class="code-string">"Python"</span>, <span class="code-string">"JavaScript"</span>,
+    <span class="code-string">"PHP"</span>, <span class="code-string">"C"</span>, <span class="code-string">"Shell"</span>
+  ],
+  <span class="code-property">passion</span>: <span class="code-string">"Build, break, learn, repeat"</span>,
+  <span class="code-property">motto</span>: () => <span class="code-string">"Ship it! 🚀"</span>
+};</code></pre>
+      </div>
+    </div>
+    <div class="scroll-indicator" id="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">01</span>
+        <h2 class="section-title">About Me</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <!-- Profile Photo -->
+          <div class="profile-photo-wrapper">
+            <div class="profile-photo-ring">
+              <img src="https://avatars.githubusercontent.com/u/106007410?v=4" alt="Pumudu Anuradha" class="profile-photo" />
+            </div>
+            <div class="profile-photo-badge">
+              <i class="bi bi-patch-check-fill"></i>
+            </div>
+          </div>
+          <p class="about-intro">
+            I'm a Computer Science undergraduate at the <strong>University of Colombo School of Computing (UCSC)</strong>, 
+            driven by a relentless curiosity for technology and a passion for building impactful solutions.
+          </p>
+          <p>
+            My journey spans across full-stack web development, DevOps engineering, cloud architecture, and cybersecurity. 
+            I believe in learning by doing — every project is an opportunity to push boundaries and discover something new.
+          </p>
+          <p>
+            When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, 
+            or architecting VPN tunnels and middleware platforms — because why not?
+          </p>
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <div class="highlight-icon"><i class="bi bi-mortarboard-fill"></i></div>
+              <div>
+                <strong>UCSC</strong>
+                <span>BSc Computer Science</span>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon"><i class="bi bi-geo-alt-fill"></i></div>
+              <div>
+                <strong>Sri Lanka</strong>
+                <span>Based in Colombo</span>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon"><i class="bi bi-lightbulb-fill"></i></div>
+              <div>
+                <strong>Motto</strong>
+                <span>Build, break, learn, repeat</span>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+              <div>
+                <strong>Focus Areas</strong>
+                <span>Full-Stack · DevOps · Cloud · Security</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <div class="code-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <span class="terminal-title">pumudu@localhost:~</span>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-cmd">whoami</span>
+              </div>
+              <div class="terminal-output">Pumudu Anuradha</div>
+              <div class="terminal-line">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-cmd">cat education.txt</span>
+              </div>
+              <div class="terminal-output">BSc Computer Science @ UCSC</div>
+              <div class="terminal-line">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-cmd">ls skills/</span>
+              </div>
+              <div class="terminal-output">full-stack/ devops/ cloud/ security/</div>
+              <div class="terminal-line">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-cmd">echo $STATUS</span>
+              </div>
+              <div class="terminal-output">🟢 Open to opportunities</div>
+              <div class="terminal-line">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-cursor">█</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">02</span>
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category" data-aos="fade-up">
+          <div class="skill-category-header">
+            <span class="skill-icon"><i class="bi bi-code-slash"></i></span>
+            <h3>Languages</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Go</span>
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">C</span>
+            <span class="skill-tag">Shell/Bash</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">HTML/CSS</span>
+          </div>
+        </div>
+        <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+          <div class="skill-category-header">
+            <span class="skill-icon"><i class="bi bi-globe2"></i></span>
+            <h3>Web & Frameworks</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express.js</span>
+            <span class="skill-tag">Spring Boot</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">GraphQL</span>
+            <span class="skill-tag">WebSockets</span>
+            <span class="skill-tag">JWT Auth</span>
+          </div>
+        </div>
+        <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+          <div class="skill-category-header">
+            <span class="skill-icon"><i class="bi bi-database-fill"></i></span>
+            <h3>Databases & Infra</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">RabbitMQ</span>
+            <span class="skill-tag">Kafka</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">Nginx</span>
+          </div>
+        </div>
+        <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+          <div class="skill-category-header">
+            <span class="skill-icon"><i class="bi bi-cloud-fill"></i></span>
+            <h3>Cloud & DevOps</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Azure</span>
+            <span class="skill-tag">GCP</span>
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Git/GitHub</span>
+            <span class="skill-tag">VPS Management</span>
+          </div>
+        </div>
+        <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
+          <div class="skill-category-header">
+            <span class="skill-icon"><i class="bi bi-robot"></i></span>
+            <h3>AI & Machine Learning</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">Scikit-learn</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">OpenCV</span>
+            <span class="skill-tag">Hugging Face</span>
+            <span class="skill-tag">NLP</span>
+            <span class="skill-tag">Computer Vision</span>
+          </div>
+        </div>
+        <div class="skill-category" data-aos="fade-up" data-aos-delay="500">
+          <div class="skill-category-header">
+            <span class="skill-icon"><i class="bi bi-shield-lock-fill"></i></span>
+            <h3>Security & Networking</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">WireGuard</span>
+            <span class="skill-tag">iptables</span>
+            <span class="skill-tag">systemd</span>
+            <span class="skill-tag">Xray/VLESS</span>
+            <span class="skill-tag">SSL/TLS</span>
+            <span class="skill-tag">Cloudflare</span>
+            <span class="skill-tag">Penetration Testing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">03</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+        <!-- Project 1: SwiftLogistics -->
+        <div class="project-card project-featured" data-aos="fade-up">
+          <div class="project-content">
+            <div class="project-label">Featured Project</div>
+            <h3 class="project-title">SwiftTrack Middleware Platform</h3>
+            <div class="project-description">
+              <p>A full-stack enterprise middleware platform integrating three heterogeneous systems — CMS (SOAP/XML), WMS (TCP/IP), and ROS (REST/JSON) — into a unified logistics solution. Features ESB Orchestrator with Saga Pattern, real-time WebSocket updates, and role-based dashboards.</p>
+            </div>
+            <ul class="project-tech">
+              <li>FastAPI</li>
+              <li>Python</li>
+              <li>RabbitMQ</li>
+              <li>WebSockets</li>
+              <li>SOAP</li>
+              <li>Docker</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/Anuradhapumudu/swiftlogistics-middleware-platform" target="_blank" class="project-link" id="project-link-swift">
+                <i class="bi bi-github"></i>
+                <span>Source Code</span>
+              </a>
+            </div>
+          </div>
+          <div class="project-image-wrapper">
+            <div class="project-architecture">
+              <div class="arch-node arch-main">SwiftTrack ESB</div>
+              <div class="arch-connections">
+                <div class="arch-node arch-sub">CMS<br/><small>SOAP/XML</small></div>
+                <div class="arch-node arch-sub">WMS<br/><small>TCP/IP</small></div>
+                <div class="arch-node arch-sub">ROS<br/><small>REST</small></div>
+              </div>
+              <div class="arch-node arch-bottom">RabbitMQ + WebSocket</div>
+            </div>
+          </div>
         </div>
 
-        <div class="scroll-content">
-            <div class="hero-split-container">
-                <!-- Left Column: Text -->
-                <div class="hero-text-content">
-                    <p class="hero-label fade-in-up">Full-Stack Developer</p>
-                    <h1 class="hero-name fade-in-up delay-1">
-                        <span id="typing-name"></span><span class="typing-cursor">|</span>
-                    </h1>
-                    <p class="hero-title fade-in-up delay-2">
-                        CS Undergraduate at University of Colombo School of Computing.
-                        Building the future with elegant digital solutions.
-                    </p>
-                    <a href="#contact" class="hero-cta fade-in-up delay-3">
-                        <span>Let's work together</span>
-                        <span>→</span>
-                    </a>
-                </div>
-
-                <!-- Right Column: Visual (Tech Sphere) -->
-                <div class="hero-visual fade-in-up delay-4">
-                    <div class="tech-sphere-wrapper" id="tech-sphere">
-                        <!-- Tags inserted via JS -->
-                    </div>
-                </div>
+        <!-- Project 2: CeylonProxy -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-card-inner">
+            <div class="project-card-header">
+              <i class="bi bi-shield-lock-fill project-card-icon"></i>
+              <div class="project-card-links">
+                <a href="https://github.com/Anuradhapumudu/CeylonProxy" target="_blank" id="project-link-ceylon">
+                  <i class="bi bi-github"></i>
+                </a>
+              </div>
             </div>
-
-            <!-- Scroll indicator -->
-            <div class="scroll-indicator fade-in-up delay-4">
-                <span>Scroll</span>
-                <div class="scroll-indicator-line"></div>
-            </div>
+            <h3 class="project-card-title">CeylonProxy</h3>
+            <p class="project-card-desc">Optimized WireGuard VPN management tool with automated endpoint selection, kill switch, health monitoring, config obfuscation, and systemd service integration. Features a glassmorphism web management panel.</p>
+            <ul class="project-tech">
+              <li>Python</li>
+              <li>Shell</li>
+              <li>WireGuard</li>
+              <li>HTML/CSS</li>
+              <li>iptables</li>
+            </ul>
+          </div>
         </div>
-    </section>
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         SECTION 02: ABOUT
-         ═══════════════════════════════════════════════════════════════════════ -->
-    <section class="section section-sticky" id="about">
-        <span class="section-number">02</span>
-        <div class="scroll-content">
-            <div class="section-inner">
-                <div class="about-grid">
-                    <div class="about-image reveal-left">
-
-                    </div>
-                    <div class="about-content">
-                        <div class="education-badge reveal">
-                            <span class="icon">🎓</span>
-                            <span>Computer Science @ UCSC</span>
-                        </div>
-                        <h2 class="about-heading reveal">
-                            Pursuing dreams<br>in Computer Science
-                        </h2>
-                        <p class="about-text reveal">
-                            I'm a Computer Science undergraduate at the University of Colombo
-                            School of Computing (UCSC), passionate about transforming ideas into
-                            elegant digital solutions. I specialize in modern web technologies
-                            and love building applications that make a difference.
-                        </p>
-                        <div class="stats-grid reveal-stagger">
-                            <div class="stat-item">
-                                <div class="stat-number" data-count="20">20+</div>
-                                <div class="stat-label">Projects Built</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">500+</div>
-                                <div class="stat-label">Cups of Coffee</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number" data-count="10">10+</div>
-                                <div class="stat-label">Technologies</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Project 3: FarmerConnect -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-card-inner">
+            <div class="project-card-header">
+              <i class="bi bi-layers-fill project-card-icon"></i>
+              <div class="project-card-links">
+                <a href="https://github.com/Anuradhapumudu/FarmerConnect" target="_blank" id="project-link-farmer">
+                  <i class="bi bi-github"></i>
+                </a>
+              </div>
             </div>
+            <h3 class="project-card-title">FarmerConnect</h3>
+            <p class="project-card-desc">UCSC 2nd Year Group Project — A comprehensive agricultural marketplace platform connecting farmers directly with consumers. Built with PHP, MySQL, and modern web technologies with 211+ commits.</p>
+            <ul class="project-tech">
+              <li>PHP</li>
+              <li>MySQL</li>
+              <li>JavaScript</li>
+              <li>CSS</li>
+              <li>Apache</li>
+            </ul>
+          </div>
         </div>
-    </section>
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         SECTION 03: WORK
-         ═══════════════════════════════════════════════════════════════════════ -->
-    <section class="section section-sticky" id="work">
-        <span class="section-number">03</span>
-        <div class="scroll-content">
-            <div class="section-inner">
-                <div class="work-header reveal">
-                    <h2 class="work-heading">Featured Work</h2>
-                    <p class="work-subheading">A selection of projects I'm proud of</p>
-                </div>
-                <div class="projects-grid reveal-stagger">
-                    <article class="project-card" onclick="window.location.href='./tools/signature/'"
-                        style="cursor: pointer;">
-                        <div class="project-icon">✨</div>
-                        <h3 class="project-title">Email Signature Generator</h3>
-                        <p class="project-desc">
-                            Create professional email signatures with AI-generated avatars.
-                            Features live preview and one-click copy for Gmail, Outlook, and Apple Mail.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">AI</span>
-                            <span class="project-tag">Tool</span>
-                        </div>
-                    </article>
-                </div>
+        <!-- Project 4: SE-Group -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="project-card-inner">
+            <div class="project-card-header">
+              <i class="bi bi-people-fill project-card-icon"></i>
+              <div class="project-card-links">
+                <a href="https://github.com/Anuradhapumudu/SE-Group" target="_blank" id="project-link-se">
+                  <i class="bi bi-github"></i>
+                </a>
+              </div>
             </div>
+            <h3 class="project-card-title">SE-Group Project</h3>
+            <p class="project-card-desc">Software Engineering group project at UCSC — collaborative team development following SE best practices including requirements analysis, design documentation, and agile methodologies.</p>
+            <ul class="project-tech">
+              <li>HTML</li>
+              <li>C</li>
+              <li>Agile</li>
+              <li>Git</li>
+            </ul>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         SECTION 04: SKILLS
-         ═══════════════════════════════════════════════════════════════════════ -->
-    <section class="section section-sticky" id="skills">
-        <span class="section-number">04</span>
-        <div class="scroll-content">
-            <div class="section-inner">
-                <div class="skills-container">
-                    <h2 class="skills-heading reveal">Technical Expertise</h2>
-                    <div class="skills-categories reveal-stagger">
-                        <div class="skill-category">
-                            <h3 class="skill-category-title">Frontend</h3>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">React / Next.js</span>
-                                    <span class="skill-level">95%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="--progress: 95%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">TypeScript</span>
-                                    <span class="skill-level">90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="--progress: 90%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">CSS / Tailwind</span>
-                                    <span class="skill-level">92%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="--progress: 92%"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h3 class="skill-category-title">Backend</h3>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Node.js / Express</span>
-                                    <span class="skill-level">93%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="--progress: 93%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Python / FastAPI</span>
-                                    <span class="skill-level">88%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="--progress: 88%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">PostgreSQL / MongoDB</span>
-                                    <span class="skill-level">85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="--progress: 85%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- Experience / Timeline -->
+  <section id="experience" class="section experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">04</span>
+        <h2 class="section-title">Journey</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2024 — Present</span>
+            <h3>UCSC — BSc Computer Science</h3>
+            <p>Pursuing a degree in Computer Science at the University of Colombo School of Computing. Focusing on middleware architectures, software engineering, and full-stack development.</p>
+          </div>
         </div>
-    </section>
+        <div class="timeline-item" data-aos="fade-left">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2025</span>
+            <h3>FarmerConnect — Group Project Lead</h3>
+            <p>Led the development of an agricultural marketplace platform as part of the 2nd year group project. 211+ commits, PHP/MySQL backend, modern responsive frontend.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2026</span>
+            <h3>SwiftTrack Middleware Platform</h3>
+            <p>Built an enterprise-grade middleware integrating SOAP, TCP, and REST systems with ESB orchestration, Saga Pattern, and RabbitMQ message queuing for the Middleware Architecture module.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-left">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2026</span>
+            <h3>CeylonProxy — VPN Management Tool</h3>
+            <p>Designed and deployed a WireGuard VPN management system with automated endpoint selection, kill switch, health monitoring, and a glassmorphism web panel. Deployed on production VPS infrastructure.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         SECTION 05: CONTACT
-         ═══════════════════════════════════════════════════════════════════════ -->
-    <section class="section" id="contact">
-        <span class="section-number">05</span>
-        <div class="scroll-content">
-            <div class="section-inner">
-                <div class="contact-container">
-                    <h2 class="contact-heading reveal">
-                        Let's build<br>something great
-                    </h2>
-                    <p class="contact-subheading reveal">
-                        I'm always open to discussing new projects,
-                        creative ideas, or opportunities to be part of your vision.
-                    </p>
-
-                    <!-- Contact Form -->
-                    <form id="contact-form" class="contact-form reveal">
-                        <div class="form-group">
-                            <input type="text" id="contact-name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="contact-email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="contact-phone" name="phone" placeholder="Your Phone (optional)">
-                        </div>
-                        <div class="form-group">
-                            <textarea id="contact-message" name="message" placeholder="Your Message" rows="4"
-                                required></textarea>
-                        </div>
-
-                        <!-- Cloudflare Turnstile -->
-                        <div class="cf-turnstile" data-sitekey="0x4AAAAAACXUReb8XgZBcLSa" data-theme="dark"
-                            style="margin-bottom: 20px;"></div>
-
-                        <button type="submit" class="contact-submit-btn">
-                            <span class="btn-text">Send Message</span>
-                            <span class="btn-loading" style="display: none;">Sending...</span>
-                        </button>
-                        <div id="form-status" class="form-status"></div>
-                    </form>
-
-                    <p class="contact-or reveal">or email me directly</p>
-                    <a href="mailto:hello@pumudu.online" class="contact-email reveal">
-                        hello@pumudu.online
-                    </a>
-                    <div class="social-links reveal">
-                        <a href="https://github.com/anuradhapumudu" target="_blank" class="social-link"
-                            aria-label="GitHub">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                        </a>
-                        <a href="https://linkedin.com/in/pumudu-anuradha-5b5a85313" target="_blank" class="social-link"
-                            aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                            </svg>
-                        </a>
-                        <a href="https://twitter.com/pumudu" target="_blank" class="social-link" aria-label="Twitter">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <footer class="footer">
-                    <p>© 2024 Pumudu Anuradha. All rights reserved.</p>
-                </footer>
+  <!-- Contact Section -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">05</span>
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-layout">
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper">
+          <h3 class="contact-form-title">
+            <i class="bi bi-send-fill"></i>
+            <span>Send me a message</span>
+          </h3>
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <label for="form-name">
+                <i class="bi bi-person-fill"></i>
+                <span>Full Name</span>
+              </label>
+              <input type="text" id="form-name" name="name" placeholder="John Doe" required />
             </div>
-    </section>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="form-email">
+                  <i class="bi bi-envelope-fill"></i>
+                  <span>Email Address</span>
+                </label>
+                <input type="email" id="form-email" name="email" placeholder="john@example.com" required />
+              </div>
+              <div class="form-group">
+                <label for="form-phone">
+                  <i class="bi bi-phone-fill"></i>
+                  <span>Phone (Optional)</span>
+                </label>
+                <input type="tel" id="form-phone" name="phone" placeholder="+94 XX XXX XXXX" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="form-message">
+                <i class="bi bi-chat-left-text-fill"></i>
+                <span>Message</span>
+              </label>
+              <textarea id="form-message" name="message" rows="5" placeholder="Tell me about your project or just say hi..." required></textarea>
+            </div>
+            <!-- Cloudflare Turnstile Widget -->
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAACXUReb8XgZBcLSa" data-theme="dark"></div>
+            <button type="submit" class="btn btn-primary form-submit" id="form-submit">
+              <span class="form-submit-text">Send Message</span>
+              <span class="form-submit-loading" style="display:none;">
+                <i class="bi bi-arrow-repeat spin"></i> Sending...
+              </span>
+              <i class="bi bi-arrow-up-right form-submit-icon"></i>
+            </button>
+            <div id="form-status" class="form-status"></div>
+          </form>
+        </div>
 
+        <!-- Contact Cards Sidebar -->
+        <div class="contact-sidebar">
+          <p class="contact-description">
+            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your team.
+          </p>
+          <div class="contact-cards-stack">
+            <a href="https://github.com/Anuradhapumudu" target="_blank" class="contact-card" id="contact-github">
+              <i class="bi bi-github contact-card-icon"></i>
+              <div>
+                <span class="contact-card-title">GitHub</span>
+                <span class="contact-card-value">@Anuradhapumudu</span>
+              </div>
+              <i class="bi bi-arrow-up-right contact-card-arrow"></i>
+            </a>
+            <a href="mailto:hello@pumudu.online" class="contact-card" id="contact-email">
+              <i class="bi bi-envelope-fill contact-card-icon"></i>
+              <div>
+                <span class="contact-card-title">Email</span>
+                <span class="contact-card-value">hello@pumudu.online</span>
+              </div>
+              <i class="bi bi-arrow-up-right contact-card-arrow"></i>
+            </a>
+            <a href="https://t.me/" target="_blank" class="contact-card" id="contact-telegram">
+              <i class="bi bi-telegram contact-card-icon"></i>
+              <div>
+                <span class="contact-card-title">Telegram</span>
+                <span class="contact-card-value">Message Me</span>
+              </div>
+              <i class="bi bi-arrow-up-right contact-card-arrow"></i>
+            </a>
+            <a href="https://linkedin.com/" target="_blank" class="contact-card" id="contact-linkedin">
+              <i class="bi bi-linkedin contact-card-icon"></i>
+              <div>
+                <span class="contact-card-title">LinkedIn</span>
+                <span class="contact-card-value">Connect</span>
+              </div>
+              <i class="bi bi-arrow-up-right contact-card-arrow"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Scripts -->
-    <script src="js/script.js"></script>
-    <script type="module" src="js/tubes-cursor.js"></script>
-    <script type="module" src="js/hyper-effects.js"></script>
-    <script type="module" src="js/metaballs.js"></script>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-text">
+          Designed & Built by <strong>Pumudu Anuradha</strong>
+        </p>
+        <p class="footer-subtext">© 2026 — Crafted with ☕ and curiosity</p>
+      </div>
+    </div>
+  </footer>
+
 </body>
-
 </html>
